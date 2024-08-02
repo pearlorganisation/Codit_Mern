@@ -3,9 +3,9 @@ import mongoose from "mongoose";
 // Address Schema
 const addressSchema = new mongoose.Schema(
   {
-    street: {
+    country: {
       type: String,
-      required: [true, "Street is required"],
+      required: [true, "Country is required"],
       trim: true,
     },
     city: {
@@ -23,9 +23,24 @@ const addressSchema = new mongoose.Schema(
       required: [true, "Zip is required"],
       trim: true,
     },
-    country: {
+    roadNumber: {
       type: String,
-      required: [true, "Country is required"],
+      required: [true, "Road number is required"],
+      trim: true,
+    },
+    street: {
+      type: String,
+      required: [true, "Street is required"],
+      trim: true,
+    },
+    houseNumber: {
+      type: String,
+      required: [true, "House number is required"],
+      trim: true,
+    },
+    flatNumber: {
+      type: String,
+      required: [true, "Flat number is required"],
       trim: true,
     },
   },
