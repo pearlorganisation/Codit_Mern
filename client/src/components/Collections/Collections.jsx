@@ -1,12 +1,8 @@
 import React from "react";
-// Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
-
-// Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
-import { Pagination } from "swiper/modules";
-// import required modules
+// import { Pagination } from "swiper/modules";
 import womenCollectionImage from "../../images/Ellipse 19.png";
 import accessoriesCollectionImage from "../../images/Ellipse 19 (1).png";
 import islamicCollectionImage from "../../images/Ellipse 19 (2).png";
@@ -54,15 +50,15 @@ export function Collections() {
         className="!w-full"
         breakpoints={{
           640: {
-            slidesPerView: 1,
+            slidesPerView: 2,
             spaceBetween: 20,
           },
           768: {
-            slidesPerView: 2,
+            slidesPerView: 4,
             spaceBetween: 40,
           },
           1024: {
-            slidesPerView: 4,
+            slidesPerView: 6,
             spaceBetween: 50,
           },
         }}
@@ -71,9 +67,13 @@ export function Collections() {
       >
         {collections?.map((collection, index) => {
           return (
-            <SwiperSlide key={index} className="">
-              <div className="w-[200px]">
-                <img src={collection.imagePath} alt={collection.name} />
+            <SwiperSlide key={index}>
+              <div className="flex flex-col items-center">
+                <img
+                  src={collection.imagePath}
+                  alt={collection.name}
+                  className="w-24 h-24"
+                />
                 <h3 className="mt-4 text-lg text-center font-medium ">
                   {collection.name}
                 </h3>
