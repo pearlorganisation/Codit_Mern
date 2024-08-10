@@ -4,6 +4,7 @@ import cookieParser from "cookie-parser";
 import morgan from "morgan";
 import cors from "cors";
 import { connectToMongoDB } from "./src/config/db/connectToMongoDB.js";
+import authRouter from "./src/routes/auth/authRoutes.js";
 
 dotenv.config();
 const app = express();
@@ -20,6 +21,9 @@ app.use(
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(morgan("dev"));
+
+//Routes Declaration
+app.use("/api/v1/auth", authRouter);
 
 //Test Routes
 app.get("/", (req, res) => {
