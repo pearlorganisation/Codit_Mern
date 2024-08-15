@@ -12,3 +12,26 @@
     font-weight: 800;
     font-style: normal;
   }
+
+  /* .swiper-pagination-bullet
+  {
+    padding:1rem !important;
+} */
+
+.swiper-pagination-bullet-active {
+ background-color: #B13481 !important;
+}
+
+/* Medium screens (tablets) */
+@media (min-width: 641px) and (max-width: 768px) {
+  .swiper-pagination-bullet {
+    padding: 0.75rem; /* Padding for tablets */
+  }
+}
+
+/* Large screens (desktops) */
+@media (min-width: 769px) {
+  .swiper-pagination-bullet {
+    padding: 1rem; /* Padding for larger screens (desktops) */
+  }
+}

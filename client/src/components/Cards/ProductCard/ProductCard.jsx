@@ -11,7 +11,7 @@ const ProductCard = ({data}) => {
                 className="w-full h-full object-cover"
               />
 
-              <span className="p-[0.2rem] bg-black text-white poppins-semibold rounded-md absolute top-0 left-2">
+              <span className="p-[0.1rem] md:p-[0.2rem] bg-black text-white poppins-semibold rounded-md absolute top-0 left-2">
                 SUMMER SALE 
               </span>
 

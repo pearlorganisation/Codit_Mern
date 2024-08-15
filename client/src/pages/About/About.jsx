@@ -25,200 +25,90 @@ const flashSaleData = [
 
 const About = () => {
     return (
-        <div className="">
+        <div className=""style={{backgroundColor:"#F6DDDD"}}>
+   
+   <div>
+   <img src="about_1.png" className="object-cover w-full" alt="about_Section" />
+   </div>
+  
+   <div className=" p-6" >
+      <div className="flex  gap-20 justify-between items-center  ">
+        <div className="font-bold w-2/3 " >
+             <h1 className="font-semibold text-3xl">
+             FREQUENT DESIGNS
+             </h1>
+             <p className="font-thin pt-6">
+             Exclusive has more than 1 Million products to offer, growing at a very fast. Exclusive offers a diverse assotment in categories ranging  from consumer.
 
-            <div className="grid  border-red-500 grid-cols-2 gap-80  place-content-between px-10 py-4">
-                <div className="flex flex-col gap-4 ">
-                    <span className="text-3xl py-6">Rabia - largest clothes retail shop in the world.</span>
-                    <p className="font-thin">
-                        Pellentesque ultrices, dui vel hendrerit iaculis, ipsum velit vestibulum risus, ac tincidunt diam lectus id magna. Praesent maximus lobortis neque sit amet rhoncus. Nullam tempus lectus a dui aliquet, non ultricies nibh elementum. Nulla ac nulla dolor.
-                    </p>
-                    <div className="flex py-4 flex-col gap-4">
-                        <div className="flex gap-2"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M13.875 7.875L5.625 16.125L1.5 12" stroke="#2DB324" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                            <path d="M22.4999 7.875L14.2499 16.125L12.0562 13.9313" stroke="#2DB324" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                        </svg>
-                            <p>Great 24/7 customer services.</p></div>
-
-
-
-
-                        <div className="flex gap-2"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M13.875 7.875L5.625 16.125L1.5 12" stroke="#2DB324" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                            <path d="M22.4999 7.875L14.2499 16.125L12.0562 13.9313" stroke="#2DB324" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                        </svg>
-                            <p>600+ Dedicated employe.</p></div>
-                        <div className="flex gap-2"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M13.875 7.875L5.625 16.125L1.5 12" stroke="#2DB324" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                            <path d="M22.4999 7.875L14.2499 16.125L12.0562 13.9313" stroke="#2DB324" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                        </svg>
-                            <p>50+ Branches all over the world.</p></div>
-                        <div className="flex gap-2"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M13.875 7.875L5.625 16.125L1.5 12" stroke="#2DB324" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                            <path d="M22.4999 7.875L14.2499 16.125L12.0562 13.9313" stroke="#2DB324" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                        </svg>
-                            <p>Over 1 Million Electronics Products</p></div>
+Exclusive has more than 1 Million products to offer, growing at a very fast. Exclusive offers a diverse assotment in categories ranging  from consumer.
+             </p>
+        </div>
+        <div>
+            <img src="about_2.png" alt="about_img"  />
+        </div>
+      </div>
 
 
 
+      <div className="flex  gap-20 justify-between items-center  ">
+      <div>
+            <img src="about_3.png" alt="about_img"  />
+        </div>
+        <div className="font-bold w-2/3 " >
+             <h1 className="font-semibold text-3xl">
+             OUR STORY            
+              </h1>
+             <p className="font-thin pt-6">
+             Launced in 2015, Exclusive is South Asia’s premier online shopping makterplace with an active presense in Bangladesh. Supported by wide range of tailored marketing, data and service solutions, Exclusive has 10,500 sallers and 300 brands and serves 3 millioons customers across the region. 
+             </p>
+        </div>
+ 
+      </div>
 
 
+   </div>
+             
+   <div className="relative">
+    <img src="about_4.png" alt="img" />
+    <div className="w-full h-full bg-white/60" />
+    <span className="absolute top-32 left-10 ">
+        <h1 className="uppercase text-3xl font-bold">Liable Source</h1>
+        <p className="text-md w-1/2 font-thin">Fashion is defined in a number of different ways, and its application can be sometimes unclear</p>
+    </span>
+   </div>
+             
 
-                    </div>
-                </div>
-                <div>
-                    <img src="About.png" alt="about_us " className="" />
-                </div>
+    <div className="grid grid-cols-[70%_auto]  items-center p-10">
+        <div>
+            <h1 className="text-2xl font-semibold py-6">
+            SUBSCRIBE TO OUR NEWSLETTER
+            </h1>
+            <p className="poppins-semibold  py-2 text-[191C1F]">
+            Be the first to know about latest trends,sales, updates and more
+            </p>
+            <div className="grid grid-cols-[80%_auto]  justify-between items-center ">
+
+            <div>
+            <input type="email" name="email" id="email" style={{boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px"}} className="bg-gray-50 rounded-sm border w-full border-gray-300 text-gray-900 text-sm  focus:ring-primary-600 focus:border-primary-600 block  p-2.5  " placeholder="name@company.com" required=""/>
             </div>
-
-
-          
-
-            <div className="grid grid-cols-4 p-10">
-                <div className="p-4">
-                    <h1 className="uppercase pb-4 text-[#191C1F]  font-semibold">flash sale today</h1>
-                    <div className=" flex flex-col gap-8 ">
-                    {flashSaleData.map((el, index) => {
-                        return (
-                            <>
-                                <div key={index} style={{boxShadow: "rgba(0, 0, 0, 0.16) 0px 1px 4px"}} className="flex gap-8 p-5 py-4">
-                                    <div>
-                                        <img src={el.img} alt="flash sale" />
-                                    </div>
-                                    <div>
-                                        <h1>{el.title}</h1>
-                                        <p>{el.price}</p>
-                                        <button className="text-green-500 hover:text-green-300">Go to Product</button>
-                                    </div>
-
-                                </div>
-                            </>
-                        );
-                    })
-                    }
-                    </div>
-
-
-                </div>
-                <div className="p-4">
-                    <h1 className="uppercase pb-4 text-[#191C1F]  font-semibold">flash sale today</h1>
-                    <div className=" flex flex-col gap-8 ">
-                    {flashSaleData.map((el, index) => {
-                        return (
-                            <>
-                                <div key={index} style={{boxShadow: "rgba(0, 0, 0, 0.16) 0px 1px 4px"}} className="flex gap-8 p-5 py-4">
-                                    <div>
-                                        <img src={el.img} alt="flash sale" />
-                                    </div>
-                                    <div>
-                                        <h1>{el.title}</h1>
-                                        <p>{el.price}</p>
-                                        <button className="text-green-500 hover:text-green-300">Go to Product</button>
-                                    </div>
-
-                                </div>
-                            </>
-                        );
-                    })
-                    }
-                    </div>
-
-
-                </div>
-                <div className="p-4">
-                    <h1 className="uppercase pb-4 text-[#191C1F]  font-semibold">flash sale today</h1>
-                    <div className=" flex flex-col gap-8 ">
-                    {flashSaleData.map((el, index) => {
-                        return (
-                            <>
-                                <div key={index} style={{boxShadow: "rgba(0, 0, 0, 0.16) 0px 1px 4px"}} className="flex gap-8 p-5 py-4">
-                                    <div>
-                                        <img src={el.img} alt="flash sale" />
-                                    </div>
-                                    <div>
-                                        <h1>{el.title}</h1>
-                                        <p>{el.price}</p>
-                                        <button className="text-green-500 hover:text-green-300">Go to Product</button>
-                                    </div>
-
-                                </div>
-                            </>
-                        );
-                    })
-                    }
-                    </div>
-
-
-                </div>
-                <div className="p-4">
-                    <h1 className="uppercase pb-4 text-[#191C1F]  font-semibold">flash sale today</h1>
-                    <div className=" flex flex-col gap-8 ">
-                    {flashSaleData.map((el, index) => {
-                        return (
-                            <>
-                                <div key={index} style={{boxShadow: "rgba(0, 0, 0, 0.16) 0px 1px 4px"}} className="flex gap-8 p-5 py-4">
-                                    <div>
-                                        <img src={el.img} alt="flash sale" />
-                                    </div>
-                                    <div>
-                                        <h1>{el.title}</h1>
-                                        <p>{el.price}</p>
-                                        <button className="text-green-500 hover:text-green-300">Go to Product</button>
-                                    </div>
-
-                                </div>
-                            </>
-                        );
-                    })
-                    }
-                    </div>
-
-
-                </div>
-               
-
+            <button className="p-1 font-semibold border border-black rounded-sm" style={{boxShadow:" rgba(100, 100, 111, 0.2) 0px 7px 29px 0px"}}>
+                Subscribe
+            </button>
             </div>
-
-            <div className="w-full h-[80vh] text-white bg-[#B13481]  flex justify-center items-center ">
-                <div className="flex flex-col justify-center items-center">
-                    <h1 className="text-4xl text-center">Subscribe to our newsletter </h1>
-                    <div className="flex text-sm text-slate-100 justify-center items-center py-4 w-1/2 ">
-                        <p>
-                            Praesent fringilla erat a lacinia egestas. Donec vehicula tempor libero et cursus. Donec non quam urna. Quisque vitae porta ipsum.  </p></div>
-                    <div>
-                        <form action="#" className="py-6" >
-                            <div className="items-center  mb-3 space-y-4  sm:flex sm:space-y-0">
-                                <div className="relative w-full" style={{ boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px" }}>
-                                    <label htmlFor="email" className="hidden  mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Email address</label>
-
-                                    <input className="block p-3 pl-10 w-[500px] h-[60px] text-sm text-gray-900 bg-gray-50    border-gray-300  focus:ring-primary-500 rounded-sm focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Enter your email" type="email" id="email" required="" />
-                                    <div className="absolute top-2 right-2 ">
-                                        <button type="submit" className="py-3 px-5 w-full text-sm font-medium text-center text-white   cursor-pointer bg-[#FA8232] hover:bg-[#f3731e] rounded-sm hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 ">
-                                            <div className="flex gap-2">
-                                                <p className="uppercase text-sm">
-                                                    Subscribe
-                                                </p>
-                                                <div>
-                                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                        <path d="M3.125 10H16.875" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                                                        <path d="M11.25 4.375L16.875 10L11.25 15.625" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                                                    </svg>
-
-                                                </div>
-                                            </div>
-                                        </button>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </form>
-                    </div>
-
-
-
-                </div>
+            
+        </div>
+        <div className="flex flex-col gap-6 border justify-between  items-center p-2">
+            <p className="text-[#191C1F] text-xl poppins-semibold">Stay Connected</p>
+            <div className="flex justify-between gap-6">
+                <img src="twitter.png" alt="twitter" />
+                <img src="whatsapp.png" alt="whatsapp" />
+                <img src="instagram.png" alt="instagram" />
             </div>
+        </div>
+    </div>
 
+
+     
 
 
 
