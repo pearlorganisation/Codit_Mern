@@ -5,6 +5,7 @@ import morgan from "morgan";
 import cors from "cors";
 import { connectToMongoDB } from "./src/config/db/connectToMongoDB.js";
 import authRouter from "./src/routes/auth/authRoutes.js";
+import prodCatRouter from "./src/routes/productCategory/productCategoryRoutes.js";
 
 dotenv.config();
 const app = express();
@@ -24,6 +25,7 @@ app.use(morgan("dev"));
 
 //Routes Declaration
 app.use("/api/v1/auth", authRouter);
+app.use("/api/v1/prodCat", prodCatRouter);
 
 //Test Routes
 app.get("/", (req, res) => {
