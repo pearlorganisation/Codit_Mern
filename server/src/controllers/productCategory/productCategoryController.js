@@ -1,5 +1,6 @@
 import ProductCategory from "../../models/productCategory.js";
 import { asyncHandler } from "../../utils/asyncHandler.js";
+import { validateMongodbID } from "../../utils/validateMongodbID.js";
 
 export const createProdCategory = asyncHandler(async (req, res) => {
   const { title } = req.body;
@@ -32,5 +33,79 @@ export const getAllProdCat = asyncHandler(async (req, res) => {
     success: true,
     data: findProdCategories,
     message: "Product Categories fetched successfully",
+  });
+});
+
+export const getSingleProdCat = asyncHandler(async (req, res) => {
+  const { id } = req.params;
+  // console.log(id);
+
+  validateMongodbID(id);
+
+  try {
+    const findProductCategory = await ProductCategory.findById(id);
+
+    if (findProductCategory == null) {
+      res
+        .status(404)
+        .json({ success: false, message: "No Product Category with ID found" });
+    }
+
+    res.status(200).json({
+      success: true,
+      message: "Product Category fetched succesfully",
+      data: findProductCategory,
+    });
+  } catch (error) {
+    throw new Error(error);
+  }
+});
+
+export const deleteProdCat = asyncHandler(async (req, res) => {
+  const { id } = req.params;
+
+  validateMongodbID(id);
+  try {
+    const deleteProdCategory = await ProductCategory.findByIdAndDelete(id);
+
+    if (deleteProdCategory == null) {
+      res
+        .status(404)
+        .json({ success: false, message: "No Product Category with ID found" });
+    }
+
+    res.status(200).json({
+      success: true,
+      message: "Product Category deleted succesfully",
+      data: deleteProdCategory,
+    });
+  } catch (error) {
+    throw new Error(error);
+  }
+});
+
+export const updateProdCat = asyncHandler(async (req, res) => {
+  const { id } = req.params;
+
+  validateMongodbID(id);
+
+  const updateProdCategory = await ProductCategory.findByIdAndUpdate(
+    id,
+    req.body,
+    {
+      new: true,
+    }
+  );
+
+  if (updateProdCategory == null) {
+    res
+      .status(404)
+      .json({ success: false, message: "No Product Category with ID found" });
+  }
+
+  res.status(200).json({
+    success: true,
+    message: "Product Category updated succesfully",
+    data: updateProdCategory,
   });
 });

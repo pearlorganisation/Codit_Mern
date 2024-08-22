@@ -6,6 +6,7 @@ import cors from "cors";
 import { connectToMongoDB } from "./src/config/db/connectToMongoDB.js";
 import authRouter from "./src/routes/auth/authRoutes.js";
 import prodCatRouter from "./src/routes/productCategory/productCategoryRoutes.js";
+import { errorHandler, notFound } from "./src/utils/errorHandler.js";
 
 dotenv.config();
 const app = express();
@@ -31,6 +32,9 @@ app.use("/api/v1/prodCat", prodCatRouter);
 app.get("/", (req, res) => {
   res.send("Server up and running");
 });
+
+app.use(notFound);
+app.use(errorHandler);
 
 connectToMongoDB()
   .then(() => {
