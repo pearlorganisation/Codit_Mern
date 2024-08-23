@@ -5,6 +5,7 @@ import About from "../pages/About/About";
 import Error from "../pages/Error/Error";
 import Product from "../pages/ProductListing/ProductListing";
 import Contact from "../pages/Contact/Contact";
+import ProductListing from "../pages/ProductListing/ProductListing";
 
 const routes = createBrowserRouter([
     {
@@ -26,7 +27,7 @@ const routes = createBrowserRouter([
           },
           {
             path:"product",
-            element:<Product/>,
+            element:<ProductListing/>,
           }
           
           

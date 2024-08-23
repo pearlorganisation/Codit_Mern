@@ -148,7 +148,7 @@ export const loginUser = asyncHandler(async (req, res) => {
 
     res
       .status(200)
-      .json({ success: true, message: "Logged in successfully", data: data });
+      .json({ success: true, message: "Logged in successfully" });
   } else {
     throw new Error("Invalid Credentails");
   }
@@ -179,11 +179,16 @@ export const logout = asyncHandler(async (req, res) => {
 
 export const profile = asyncHandler(async (req, res) => {
   const user = req.user;
-  // console.log("User", user);
+ 
 
   res.status(200).json({
     success: true,
     message: "The Profile of Logged In User",
-    data: user,
+    data: {
+
+      email : user.email,
+      firstName: user.firstName,
+      lastName: user.lastName
+    },
   });
 });

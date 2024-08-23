@@ -7,6 +7,7 @@ import { connectToMongoDB } from "./src/config/db/connectToMongoDB.js";
 import authRouter from "./src/routes/auth/authRoutes.js";
 import prodCatRouter from "./src/routes/productCategory/productCategoryRoutes.js";
 import { errorHandler, notFound } from "./src/utils/errorHandler.js";
+import { productRouter } from "./src/routes/product/product.js";
 
 dotenv.config();
 const app = express();
@@ -27,6 +28,7 @@ app.use(morgan("dev"));
 //Routes Declaration
 app.use("/api/v1/auth", authRouter);
 app.use("/api/v1/prodCat", prodCatRouter);
+app.use("/api/v1/product", productRouter);
 
 //Test Routes
 app.get("/", (req, res) => {

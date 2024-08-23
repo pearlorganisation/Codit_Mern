@@ -21,4 +21,3 @@ const collectionSchema = mongoose.Schema({
 });
 
 
-export const collectionModel = collectionSchema.model('collectionSchema', collectionSchema);
