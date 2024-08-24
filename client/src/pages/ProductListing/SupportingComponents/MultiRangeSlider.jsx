@@ -7,12 +7,12 @@ function MultiRangeSlider({min,max}) {
           bar: 'bg-pink-500', 
           thumb:'bg-pink-500'
         }}  />
-        <div className="flex justify-center gap-8 pt-4">
-               <div className="border-2 p-2">
-                MIN PRICE
+        <div className="flex justify-center text-xs gap-8 pt-4">
+               <div className="border-2  p-2">
+                Min Price
                </div>
                <div className="border-2 p-2">
-                MAX PRICE
+                Max Price
                </div>
                </div>
     </div>
