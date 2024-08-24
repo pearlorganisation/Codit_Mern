@@ -8,6 +8,9 @@ import authRouter from "./src/routes/auth/authRoutes.js";
 import prodCatRouter from "./src/routes/productCategory/productCategoryRoutes.js";
 import { errorHandler, notFound } from "./src/utils/errorHandler.js";
 import { productRouter } from "./src/routes/product/product.js";
+import { categoryRouter } from "./src/routes/category/category.js";
+import { subCategoryRouter } from "./src/routes/subCategory/subCategory.js";
+import { contactUsRouter } from "./src/routes/contact_us/contact_us.js";
 
 dotenv.config();
 const app = express();
@@ -15,6 +18,7 @@ const app = express();
 const PORT = process.env.PORT || 8000;
 
 app.use(express.json({ extended: false }));
+app.use(morgan('dev'));
 app.use(
   cors({
     origin: "http://localhost:5173",
@@ -29,6 +33,9 @@ app.use(morgan("dev"));
 app.use("/api/v1/auth", authRouter);
 app.use("/api/v1/prodCat", prodCatRouter);
 app.use("/api/v1/product", productRouter);
+app.use("/api/v1/category", categoryRouter);
+app.use("/api/v1/sub-category", subCategoryRouter);
+app.use("/api/v1/contact-us", contactUsRouter);
 
 //Test Routes
 app.get("/", (req, res) => {

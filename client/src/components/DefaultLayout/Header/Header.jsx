@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react"
+import { NavLink } from "react-router-dom"
 
 // Avtar with darpdown menu
 const 
@@ -65,11 +66,11 @@ export default function Header(){
 
     const submenuNav = [
         { title: "Home", path: "/" },
-        { title: "Men's", path: "/" },
-        { title: "Women's", path: "/" },
-        { title: "Kids", path: "/" },
-        { title: "Accessories", path: "/" },
-        { title: "Gifts", path: "/" },
+        { title: "Men's", path: "/mens" },
+        { title: "Women's", path: "/womens" },
+        { title: "Kids", path: "/kids" },
+        { title: "Accessories", path: "/accessories" },
+        { title: "Gifts", path: "/gifts" },
         { title: "Contact Us", path: "/contact_us" },
         { title: "About Us", path: "/about_us" },
     ]
@@ -125,7 +126,7 @@ export default function Header(){
                                 return (
                                     <li key={idx}>
                                         <a href={item.path} className="block text-gray-700 hover:text-gray-900">
-                                          <img src={item.img} alt={item.title} srcset="" />
+                                          <img src={item.img} alt={item.title}  />
                                           <p>
                                           {item.title}</p>  
                                         </a>
@@ -142,12 +143,15 @@ export default function Header(){
                     {
                         submenuNav.map((item, idx) => {
                             return (
-                                // Replace [idx == 0] with [window.location.pathname == item.path]
-                                <li key={idx} className={`py-1  ${idx == 0 ? "border-b-2  border-indigo-600" : ""}`}>
-                                    <a href={item.path} className="block py-2 px-3 rounded-lg text-gray-700 hover:text-gray-900 hover:bg-gray-100 duration-150">
+                                    <NavLink key={idx} to={item.path} 
+                                    className={({ isActive }) =>
+                                        `block p-3  text-gray-700 border-b-2 border-b-transparent hover:border-b-pink-500  duration-150 ${
+                                          isActive ? 'border-b-pink-500 ' : ''
+                                        }`
+                                      }
+                                    >
                                         {item.title}
-                                    </a>
-                                </li>
+                                    </NavLink>
                             )
                         })
                     }
