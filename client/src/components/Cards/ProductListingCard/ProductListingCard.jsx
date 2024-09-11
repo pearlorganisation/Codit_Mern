@@ -1,6 +1,10 @@
+import {useDispatch} from "react-redux"
+import { addToCart } from "../../../features/slices/cartSlice/cartSlice"
 
 const ProductListingCard = ({ data }) => {
-  console.log("data", data);
+
+  const dispatch = useDispatch()
+
   return (
       <div className="relative text-[#262626] rounded-md " >
         <span className="bg-white text-[#D0021B] text-xs tracking-wide font-extrabold  z-20 absolute top-2 left-2 p-1">
@@ -36,7 +40,9 @@ const ProductListingCard = ({ data }) => {
                 <button className="w-5 h-5 rounded-full bg-[#262525] focus:ring-2 hover:ring-2 border-2 border-white ring-[#262525]"></button>
               </div>
               <div className="flex  justify-end ">
-            <button type="button" className="inline-flex items-center rounded-lg bg-pink-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-pink-800 focus:outline-none focus:ring-4  focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+            <button onClick={()=>{
+              dispatch(addToCart({_id:data._id,price:data.price}))
+            }} type="button" className="inline-flex items-center rounded-lg bg-pink-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-pink-800 focus:outline-none focus:ring-4  focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
               <svg className="-ms-2 me-2 h-5 w-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                 <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 4h1.5L8 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm.75-3H7.5M11 7H6.312M17 4v6m-3-3h6" />
               </svg>

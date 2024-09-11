@@ -21,7 +21,7 @@ const categoryData = [
 
 const products = [
   {
-    id: "1",
+    _id: "1",
     href: '/',
     imageSrc: "dummyProduct2.png",
     imageAlt: "someproduct",
@@ -29,7 +29,7 @@ const products = [
     price: "200"
   },
   {
-    id: "2",
+    _id: "2",
     href: '/',
     imageSrc: "dummyProduct2.png",
     imageAlt: "someproduct",
@@ -37,7 +37,7 @@ const products = [
     price: "200"
   },
   {
-    id: "3",
+    _id: "3",
     href: '/',
     imageSrc: "dummyProduct2.png",
     imageAlt: "someproduct",
@@ -45,7 +45,7 @@ const products = [
     price: "200"
   },
   {
-    id: "4",
+    _id: "4",
     href: '/',
     imageSrc: "dummyProduct2.png",
     imageAlt: "someproduct",
@@ -53,7 +53,7 @@ const products = [
     price: "200"
   },
   {
-    id: "5",
+    _id: "5",
     href: '/',
     imageSrc: "dummyProduct2.png",
     imageAlt: "someproduct",
@@ -61,7 +61,7 @@ const products = [
     price: "200"
   },
   {
-    id: "6",
+    _id: "6",
     href: '/',
     imageSrc: "dummyProduct2.png",
     imageAlt: "someproduct",
@@ -69,7 +69,7 @@ const products = [
     price: "200"
   },
   {
-    id: "7",
+    _id: "7",
     href: '/',
     imageSrc: "dummyProduct2.png",
     imageAlt: "someproduct",
@@ -77,7 +77,7 @@ const products = [
     price: "200"
   },
   {
-    id: "8",
+    _id: "8",
     href: '/',
     imageSrc: "dummyProduct2.png",
     imageAlt: "someproduct",
@@ -85,7 +85,7 @@ const products = [
     price: "200"
   },
   {
-    id: "9",
+    _id: "9",
     href: '/',
     imageSrc: "dummyProduct2.png",
     imageAlt: "someproduct",
@@ -93,7 +93,7 @@ const products = [
     price: "200"
   },
   {
-    id: "10",
+    _id: "10",
     href: '/',
     imageSrc: "dummyProduct2.png",
     imageAlt: "someproduct",
@@ -101,7 +101,7 @@ const products = [
     price: "200"
   },
   {
-    id: "11",
+    _id: "11",
     href: '/',
     imageSrc: "dummyProduct2.png",
     imageAlt: "someproduct",
@@ -109,7 +109,7 @@ const products = [
     price: "200"
   },
   {
-    id: "12",
+    _id: "12",
     href: '/',
     imageSrc: "dummyProduct2.png",
     imageAlt: "someproduct",

@@ -12,7 +12,9 @@ router.route('/')
         {
             name: "images", maxCount: 10
         }
-    ]), createProduct);
+    ]), createProduct)
+        
+;
 
 
 
@@ -20,6 +22,8 @@ router.route('/:id')
     .delete(deleteProduct)
     .patch(updateProduct)
     .get(getProduct);
+
+
 
 
 export const productRouter = router;
