@@ -1,59 +1,62 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { registerUser, userLogin } from "../../actions/authActions";
+
+registerUser;
 
 const initialState = {
-  userData: null,
-  isUserLoggedIn: false,
-  newPassword:"",
-  forgetPasswordEmail:"",
-};
-// Function to load user data from localStorage
-const loadUserData = () => {
-  if (typeof window !== "undefined") {
-    const userData = localStorage.getItem("userData");
-    if (userData) {
-      const parsedData = JSON.parse(userData);
-      return {
-        userData: parsedData.userData,
-        isUserLoggedIn: parsedData.isUserLoggedIn,
-      };
-    }
-  }
-  return initialState;
+  loading: false,
+  userInfo: null,
+  userToken: null,
+  error: null,
+  success: false,
+  message: null,
 };
 
-const authslice = createSlice({
+const authSlice = createSlice({
   name: "auth",
-  initialState: loadUserData(),
+  initialState,
   reducers: {
-    getcredentials: (state, action) => {
-      return (state = action.payload);
-    },
-    addNewPassword: (state, action) => {
-      state.newPassword = action.payload;
-    },
-    setForgetPasswordEmail:(state,action) =>{
-      state.forgetPasswordEmail = action.payload;
-    },
-
-    addUserData: (state, action) => {
-      const data = action.payload;
-      console.log(data);
-      localStorage.setItem(
-        "userData",
-        JSON.stringify({
-          userData: data?.data,
-          isUserLoggedIn: data?.isUserLoggedIn,
-        })
-      );
-      state.userData = data?.data;
-      state.isUserLoggedIn = data?.isUserLoggedIn;
-    },
-    userLogout: (state, action) => {
-      localStorage.removeItem("userData");
-      state.isUserLoggedIn = false;
-      state.userData = null;
+    logout: (state) => {
+      localStorage.removeItem("isLoggedIn");
+      state.loading = false;
+      state.userInfo = null;
+      state.userToken = null;
+      state.error = null;
     },
   },
+  extraReducers: (builder) => {
+    builder
+      .addCase(registerUser.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(userLogin.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      }),
+      builder
+        .addCase(registerUser.rejected, (state, action) => {
+          state.loading = false;
+          state.error = action.payload;
+        })
+        .addCase(userLogin.rejected, (state, action) => {
+          state.loading = false;
+          state.error = action.payload;
+          state.message = action.payload;
+        }),
+      builder
+        .addCase(registerUser.fulfilled, (state, action) => {
+          (state.loading = false),
+            (state.success = true),
+            (state.userInfo = action.payload);
+        })
+        .addCase(userLogin.fulfilled, (state, action) => {
+          state.loading = false;
+          state.success = true;
+          state.message = action.payload;
+        });
+  },
 });
-export const { getcredentials,addNewPassword, addUserData, userLogout , setForgetPasswordEmail } = authslice.actions;
-export default authslice.reducer;
+
+export const { logout } = authSlice.actions;
+export default authSlice.reducer;

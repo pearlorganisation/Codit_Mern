@@ -42,8 +42,8 @@ app.get("/", (req, res) => {
   res.send("Server up and running");
 });
 
-app.use(notFound);
 app.use(errorHandler);
+app.use(notFound);
 
 connectToMongoDB()
   .then(() => {

@@ -3,23 +3,23 @@
 @tailwind utilities;
 
 .poppins-semibold {
-    font-family: "Poppins", sans-serif;
-    font-weight: 600;
-    font-style: normal;
-  }
-  .gupter-medium {
-    font-family: "Gupter", serif;
-    font-weight: 800;
-    font-style: normal;
-  }
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+}
+.gupter-medium {
+  font-family: "Gupter", serif;
+  font-weight: 800;
+  font-style: normal;
+}
 
-  /* .swiper-pagination-bullet
+/* .swiper-pagination-bullet
   {
     padding:1rem !important;
 } */
 
 .swiper-pagination-bullet-active {
- background-color: #B13481 !important;
+  background-color: #b13481 !important;
 }
 
 /* Medium screens (tablets) */
