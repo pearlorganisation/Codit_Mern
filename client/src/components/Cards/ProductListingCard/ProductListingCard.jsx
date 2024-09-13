@@ -1,15 +1,14 @@
-/* eslint-disable react/prop-types */
-import { Link } from "react-router-dom";
+import {useDispatch} from "react-redux"
+import { addToCart } from "../../../features/slices/cartSlice/cartSlice"
 
-const ProductListingCard = ({ product }) => {
+const ProductListingCard = ({ data }) => {
+
+  const dispatch = useDispatch()
+
   return (
-    <div className="relative">
-      <div
-        className="relative border p-2 rounded-md "
-        style={{ boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px" }}
-      >
-        <span className="bg-[#2DB224] text-white rounded-sm z-20 absolute top-0 left-0 px-3">
-          Sale
+      <div className="relative text-[#262626] rounded-md " >
+        <span className="bg-white text-[#D0021B] text-xs tracking-wide font-extrabold  z-20 absolute top-2 left-2 p-1">
+          30% OFF
         </span>
         <a key={product.id} href={product.href} className="group">
           <div className="   overflow-hidden rounded-lg bg-gray-200 ">
@@ -19,26 +18,46 @@ const ProductListingCard = ({ product }) => {
               className="h-full w-full object-cover object-center group-hover:opacity-75"
             />
           </div>
-          <Link to={`/product/123`}>
-            <h3 className="mt-4 text-sm text-gray-700">{product.name}</h3>
-          </Link>{" "}
-          <div className="flex flex-row justify-between">
-            <p className="mt-1 text-lg font-medium text-blue-600">
-              {product.price}
-            </p>
+          </a>
 
-            <button
-              className="px-4 py-2 border border-pink-400 rounded-md"
-              onClick={() => {}}
-            >
-              {" "}
-              Add to Cart
+            <div className="">
+              <h3 className="mt-4 text-sm  font-bold  ">{data?.name}</h3>
+              <h3 className="text-xs">Women green & Blue Abstract Printed Cotton Stole</h3>
+        <div className="flex gap-2 items-center">    <p className="mt-1 text-[20px] font-bold tracking">${data?.price}</p>
+            <p className="mt-1 text-[13px] line-through text-[#737373]">${data?.price}</p>
+            </div>
+            <span className="text-[11px] rounded-full px-[10px] py-[2px] font-medium tracking-tight bg-[#FFCA63]">
+            500+ bought in past month
+            </span>
+
+<div className="text-xs font-bold text-[#737373] mt-2">Black</div>
+              <div className="flex justify-between">
+              <div className="flex gap-3 py-1">
+                <button className="w-5 h-5 rounded-full bg-[#514535] focus:ring-2 hover:ring-2 border-2 border-white ring-[#514535]"></button>
+                <button className="w-5 h-5 rounded-full bg-[#3A3840] focus:ring-2 hover:ring-2 border-2 border-white ring-[#3A3840]" ></button>
+                <button className="w-5 h-5 rounded-full bg-[#8C7058] focus:ring-2 hover:ring-2 border-2 border-white ring-[#8C7058]"></button>
+                <button className="w-5 h-5 rounded-full bg-[#262525] focus:ring-2 hover:ring-2 border-2 border-white ring-[#262525]"></button>
+              </div>
+              <div className="flex  justify-end ">
+            <button onClick={()=>{
+              dispatch(addToCart({_id:data._id,price:data.price}))
+            }} type="button" className="inline-flex items-center rounded-lg bg-pink-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-pink-800 focus:outline-none focus:ring-4  focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+              <svg className="-ms-2 me-2 h-5 w-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 4h1.5L8 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm.75-3H7.5M11 7H6.312M17 4v6m-3-3h6" />
+              </svg>
+              Add to cart
             </button>
           </div>
-        </a>
+              </div>
+            </div>
+
+
+       
+   
+
+       
       </div>
-    </div>
-  );
-};
+
+ 
 
 export default ProductListingCard;

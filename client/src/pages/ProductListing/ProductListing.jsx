@@ -20,7 +20,7 @@ const products = [
   {
     id: "1",
     href: "/",
-    imageSrc: "DummyProduct.png",
+    imageSrc: "dummyProduct2.png",
     imageAlt: "someproduct",
     name: "dummyProduct",
     price: "200$",
@@ -28,7 +28,7 @@ const products = [
   {
     id: "2",
     href: "/",
-    imageSrc: "DummyProduct.png",
+    imageSrc: "dummyProduct2.png",
     imageAlt: "someproduct",
     name: "dummyProduct",
     price: "200$",
@@ -36,7 +36,7 @@ const products = [
   {
     id: "3",
     href: "/",
-    imageSrc: "DummyProduct.png",
+    imageSrc: "dummyProduct2.png",
     imageAlt: "someproduct",
     name: "dummyProduct",
     price: "200$",
@@ -44,71 +44,71 @@ const products = [
   {
     id: "4",
     href: "/",
-    imageSrc: "DummyProduct.png",
+    imageSrc: "dummyProduct2.png",
     imageAlt: "someproduct",
     name: "dummyProduct",
     price: "200$",
   },
   {
-    id: "1",
+    id: "5",
     href: "/",
-    imageSrc: "DummyProduct.png",
+    imageSrc: "dummyProduct2.png",
     imageAlt: "someproduct",
     name: "dummyProduct",
     price: "200$",
   },
   {
-    id: "2",
+    id: "6",
     href: "/",
-    imageSrc: "DummyProduct.png",
+    imageSrc: "dummyProduct2.png",
     imageAlt: "someproduct",
     name: "dummyProduct",
     price: "200$",
   },
   {
-    id: "3",
+    id: "7",
     href: "/",
-    imageSrc: "DummyProduct.png",
+    imageSrc: "dummyProduct2.png",
     imageAlt: "someproduct",
     name: "dummyProduct",
     price: "200$",
   },
   {
-    id: "4",
+    id: "8",
     href: "/",
-    imageSrc: "DummyProduct.png",
+    imageSrc: "dummyProduct2.png",
     imageAlt: "someproduct",
     name: "dummyProduct",
     price: "200$",
   },
   {
-    id: "1",
+    id: "9",
     href: "/",
-    imageSrc: "DummyProduct.png",
+    imageSrc: "dummyProduct2.png",
     imageAlt: "someproduct",
     name: "dummyProduct",
     price: "200$",
   },
   {
-    id: "2",
+    id: "10",
     href: "/",
-    imageSrc: "DummyProduct.png",
+    imageSrc: "dummyProduct2.png",
     imageAlt: "someproduct",
     name: "dummyProduct",
     price: "200$",
   },
   {
-    id: "3",
+    id: "11",
     href: "/",
-    imageSrc: "DummyProduct.png",
+    imageSrc: "dummyProduct2.png",
     imageAlt: "someproduct",
     name: "dummyProduct",
     price: "200$",
   },
   {
-    id: "4",
+    id: "12",
     href: "/",
-    imageSrc: "DummyProduct.png",
+    imageSrc: "dummyProduct2.png",
     imageAlt: "someproduct",
     name: "dummyProduct",
     price: "200$",
@@ -118,122 +118,141 @@ const products = [
 const Product = () => {
   return (
     <div className="">
-      <div className="p-4 bg-[#F2F4F5] my-2 bg-color-black">
-        <h1 className="text-blue-500">Product </h1>
+      <div className="p-4 flex gap-10 bg-[#F2F4F5] my-2 bg-color-black">
+        <h1 className="text-blue-500">Showing 1-20 out of 2,345 Products </h1>
+        <p className="font-bold text-md ">Men’s Winter Wear</p>
       </div>
 
-      <div className="p-8 grid grid-cols-[20%_auto]">
-        {/* filter div */}
-
-        <div>
-          {/* category */}
-          <>
-            <h1 className="uppercase py-2 font-semibold">Categories</h1>
-            <div className="flex flex-col">
-              {categoryData.map((el, index) => {
-                return (
-                  <div key={index} className="flex items-center mb-4">
-                    <input
-                      id="default-radio-1"
-                      type="radio"
-                      value=""
-                      name="default-radio"
-                      className="w-4 h-4 text-blue-600  bg-gray-100 border-gray-300  "
-                    />
-                    <label
-                      htmlFor="default-radio-1"
-                      className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-                    >
-                      {el.title}
-                    </label>
-                  </div>
-                );
-              })}
-            </div>
-          </>
-
-          {/* price range */}
-          <div>
-            <h1>Price Range</h1>
-            <div>
-              <div className="p-1 flex flex-col gap-4">
-                <MultiRangeSlider min={5} max={10000} />
-
-                <div>
-                  {categoryData.map((el, index) => {
-                    return (
-                      <div key={index} className="flex items-center mb-4">
-                        <input
-                          id="default-radio-1"
-                          type="radio"
-                          value=""
-                          name="default-radio"
-                          className="w-4 h-4 text-blue-600  bg-gray-100 border-gray-300  "
-                        />
-                        <label
-                          htmlFor="default-radio-1"
-                          className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-                        >
-                          {el.title}
-                        </label>
-                      </div>
-                    );
-                  })}
-                </div>
+      <div className="grid grid-cols-[20%_auto] gap-10 ">
+        <div className="border-[0.1rem] border-dashed p-2 border-black  ">
+          <div className="">
+            <p className="font-bold">Category</p>
+            <div className="flex flex-col py-8 gap-10 px-3 justify-between">
+              <div className="flex items-center ">
+                <input
+                  type="checkbox"
+                  className="w-6 h-6 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 "
+                />
+                <label
+                  htmlFor="checked-checkbox"
+                  className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                >
+                  Everyone - All Gender Collection{" "}
+                </label>
+              </div>
+              <div className="flex items-center">
+                <input
+                  type="checkbox"
+                  className="w-6 h-6 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 "
+                />
+                <label
+                  htmlFor="checked-checkbox"
+                  className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                >
+                  Accessories & Gift Cards{" "}
+                </label>
+              </div>
+              <div className="flex items-center">
+                <input
+                  type="checkbox"
+                  className="w-6 h-6 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 "
+                />
+                <label
+                  htmlFor="checked-checkbox"
+                  className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                >
+                  Backpacks, Weekenders & Duffle Bags{" "}
+                </label>
+              </div>
+              <div className="flex items-center">
+                <input
+                  type="checkbox"
+                  className="w-6 h-6 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 "
+                />
+                <label
+                  htmlFor="checked-checkbox"
+                  className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                >
+                  Dress Shirts & Button Downs{" "}
+                </label>
+              </div>
+              <div className="flex items-center">
+                <input
+                  type="checkbox"
+                  className="w-6 h-6 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 "
+                />
+                <label
+                  htmlFor="checked-checkbox"
+                  className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                >
+                  Hoodies & Sweatshirts{" "}
+                </label>
               </div>
             </div>
           </div>
-          {/* popular trends */}
-          <div className="py-2">
-            <h1 className="py-2">Poplular Brands</h1>
-            <div className="grid grid-cols-2">
-              {categoryData.map((el, index) => {
-                return (
-                  <div key={index} className="flex items-center mb-4">
-                    <input
-                      id="default-checkbox"
-                      type="checkbox"
-                      value=""
-                      className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-                    />
-                    <label
-                      htmlFor="default-checkbox"
-                      className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-                    >
-                      {el.title}
-                    </label>
-                  </div>
-                );
-              })}
+
+          <div className="">
+            <p className="text-md font-bold py-2">Color</p>
+            <div className="grid grid-cols-3   gap-4">
+              <div className="flex flex-col  items-center">
+                {" "}
+                <div className="w-6 h-6  bg-black rounded-full"></div>
+                <p>Green</p>
+              </div>
+              <div className="flex flex-col items-center">
+                {" "}
+                <div className="w-6 h-6 bg-blue-400 rounded-full"></div>
+                <p>Blue</p>
+              </div>
+              <div className="flex flex-col items-center">
+                {" "}
+                <div className="w-6 h-6 bg-[#925C37] rounded-full"></div>
+                <p>Brown</p>
+              </div>
+              <div className="flex flex-col items-center">
+                {" "}
+                <div className="w-6 h-6 bg-black rounded-full"></div>
+                <p>Green</p>
+              </div>
+              <div className="flex flex-col items-center">
+                {" "}
+                <div className="w-6 h-6 bg-green-400 rounded-full"></div>
+                <p>black</p>
+              </div>
+              <div className="flex flex-col items-center">
+                {" "}
+                <div className="w-6 h-6 bg-green-400 rounded-full"></div>
+                <p>black</p>
+              </div>
+              <div className="flex flex-col items-center">
+                {" "}
+                <div className="w-6 h-6 bg-black rounded-full"></div>
+                <p>Green</p>
+              </div>
+              <div className="flex flex-col items-center">
+                {" "}
+                <div className="w-6 h-6 bg-green-400 rounded-full"></div>
+                <p>black</p>
+              </div>
+              <div className="flex flex-col items-center">
+                {" "}
+                <div className="w-6 h-6 bg-green-400 rounded-full"></div>
+                <p>black</p>
+              </div>
             </div>
+          </div>
+
+          <div className=" ">
+            <p className="text-xl font-bold py-4">Prices</p>
+            <MultiRangeSlider min={100} max={10000} />
           </div>
         </div>
 
-        {/* productDiv */}
-        <div className="border-4 border-green-500">
-          <div className="grid justify-between grid-cols-2  ">
-            <div className="flex  items-center justify-end pr-2 ">
-              <p>Sort By : &nbsp;</p>
-              <p className="w-1/3"></p>
-            </div>
-          </div>
-          <div className="bg-[#F2F4F5] p-2 mt-2">
-            <h1>Active Filters:Lorem</h1>
-          </div>
-
-          {/* product listing   */}
-          <div className="border border-yellow-300">
-            <div className="bg-white">
-              <div className="mx-auto px-4 py-6 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
-                <h2 className="sr-only">Products</h2>
-
-                <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
-                  {products?.map((product) => (
-                    <ProductListingCard key={products.id} product={product} />
-                  ))}
-                </div>
-              </div>
-            </div>
+        <div className="border p-5">
+          <div className="grid grid-cols-3 gap-10  justify-between items-center">
+            {products.map((data, idx) => {
+              return <ProductListingCard data={data} key={idx} />;
+            })}
           </div>
         </div>
       </div>

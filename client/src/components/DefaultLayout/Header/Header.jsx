@@ -119,7 +119,7 @@ export default function Header() {
         </div>
         <div
           className={`nav-menu flex-1 pb-28 mt-8 overflow-y-auto max-h-screen lg:block lg:overflow-visible lg:pb-0 lg:mt-0 ${
-            state ? "hidden" : ""
+            state ? "" : "hidden"
           }`}
         >
           <ul className="items-center space-y-6 lg:flex lg:space-x-6 lg:space-y-0">
@@ -157,6 +157,7 @@ export default function Header() {
                     className="block text-gray-700 hover:text-gray-900"
                   >
                     <img src={item.img} alt={item.title} />
+                    <p>{item.title}</p>
                   </a>
                 </li>
               );
@@ -173,8 +174,8 @@ export default function Header() {
                 key={idx}
                 to={item.path}
                 className={({ isActive }) =>
-                  `block p-3  text-gray-700 border-b-2 border-b-transparent hover:border-b-pink-500   ${
-                    isActive ? "border-b-pink-500  border-2" : ""
+                  `block p-3  text-gray-700 border-b-2 border-b-transparent hover:border-b-pink-500  duration-150 ${
+                    isActive ? "border-b-pink-500 " : ""
                   }`
                 }
               >

@@ -9,6 +9,7 @@ export const cartSlice = createSlice({
   },
   reducers: {
     addToCart: (state, action) => {
+      console.log("jfsgjf");
       const { _id, price } = action.payload;
       let existingItem = state.cartData.find((item) => item._id === _id);
 
@@ -19,7 +20,7 @@ export const cartSlice = createSlice({
         state.cartData.push({
           ...action.payload,
           quantity: 1,
-          price: price.toFixed(2), 
+          price: price, 
         });
       }
     },
