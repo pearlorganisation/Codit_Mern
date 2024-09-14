@@ -17,15 +17,12 @@ const submenuNav = [
 // Avatar with dropdown menu
 const AvatarMenu = () => {
     const [state, setState] = useState(false);
-    const profileRef = useRef();
-
-    const navigation = [
-        { title: "Profile", path: "/" }
-    ];
+    const [account, setAccount] = useState(false);
+    const accountRef = useRef()
 
     useEffect(() => {
         const handleDropDown = (e) => {
-            if (!profileRef.current.contains(e.target)) setState(false);
+            if (!accountRef.current.contains(e.target)) setAccount(false);
         };
         document.addEventListener("click", handleDropDown);
     }, []);
@@ -34,9 +31,9 @@ const AvatarMenu = () => {
         <header className="relative border-t lg:border-none">
             <div>
                 <button
-                    ref={profileRef}
+                ref={accountRef}
                     className="hidden w-10 h-10 outline-none rounded-full ring-offset-2 ring-gray-200 lg:focus:ring-2 lg:block"
-                    onClick={() => setState(!state)}
+                    onClick={() => setAccount(!account)}
                 >
                     <img src="user.svg" className="w-full h-full rounded-full" />
                 </button>
@@ -61,19 +58,28 @@ const AvatarMenu = () => {
                     );
                 })}
       
-         
+       
+            </ul>
+
+            <ul
+                className={`bg-white top-14 right-0 mt-6 space-y-6 lg:absolute lg:border lg:rounded-md lg:w-52 lg:shadow-md lg:space-y-0 lg:mt-0 ${account ? '' : 'lg:hidden'
+                    }`}
+            >
+ 
                         <a
-                            className="block text-gray-600 hover:text-gray-900 lg:hover:bg-gray-50 lg:p-3"
+                            className="block p-3 text-gray-700 border-b-2 border-b-transparent hover:border-b-pink-500 duration-150 "
                             href="/"
                         >
                             Profile
                         </a>
                 
          
-                <button className="block w-full text-justify text-gray-600 hover:text-gray-900 border-t py-3 lg:hover:bg-gray-50 lg:p-3">
+                <a className="block p-3 text-gray-700 border-b-2 border-b-transparent hover:border-b-pink-500 duration-150 ">
                     Logout
-                </button>
+                </a>
             </ul>
+
+          
         </header>
     );
 };
