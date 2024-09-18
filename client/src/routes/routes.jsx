@@ -20,6 +20,7 @@ import Settings from "../pages/Dashboard/Settings";
 import Compare from "../pages/Dashboard/Compare";
 import CardsAddresses from "../pages/Dashboard/CardsAddresses";
 import BrowsingHistory from "../pages/Dashboard/BrowsingHistory";
+import Cart from "../pages/Cart/Cart";
 
 const routes = createBrowserRouter([
   {
@@ -99,6 +100,10 @@ const routes = createBrowserRouter([
       {
         path: "dashbrowsinghistory",
         element: <BrowsingHistory />,
+      },
+      {
+        path: "cart",
+        element: <Cart />,
       },
     ],
   },

@@ -4,10 +4,11 @@ import persistReducer from "redux-persist/es/persistReducer";
 import { encryptTransform } from "redux-persist-transform-encrypt";
 import cartReducer from "./slices/cartSlice/cartSlice.js";
 import authReducer from "./slices/authSlice/authSlice.js";
-
+import wishlistReducer from "./slices/wishlist/wishlistSlice.js";
 const rootReducer = combineReducers({
   cart: cartReducer,
   auth: authReducer,
+  wishlist: wishlistReducer,
 });
 
 // Redux-persist configuration

@@ -8,7 +8,9 @@ import { useEffect } from "react";
 import SuccessMessage from "../../components/SuccessMessage/SuccessMessage";
 
 const Login = () => {
-  const { loading, error, message } = useSelector((state) => state.auth);
+  const { loading, error, message, success } = useSelector(
+    (state) => state.auth
+  );
 
   const dispatch = useDispatch();
   const { register, handleSubmit } = useForm();
@@ -19,11 +21,11 @@ const Login = () => {
     dispatch(userLogin(data));
   };
 
-  //   useEffect(() => {
-  //     if (success) {
-  //       navigate("/");
-  //     }
-  //   }, [success, navigate]);
+  useEffect(() => {
+    if (success) {
+      navigate("/");
+    }
+  }, [success, navigate]);
   return (
     <div className="grid grid-cols-1 md:grid-cols-2  lg:gap-12 px-10 ">
       <div className="lg:mt-20 mt-6 md:border-r-2">
@@ -43,13 +45,6 @@ const Login = () => {
           className="space-y-4 md:space-y-6"
           onSubmit={handleSubmit(submitForm)}
         >
-          {message && message.success && !error && (
-            <SuccessMessage>{message.message}</SuccessMessage>
-          )}
-          {message && !message.success && !error && (
-            <ErrorMessage>{message.message}</ErrorMessage>
-          )}
-
           <div>
             <label
               htmlFor="email"

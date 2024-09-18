@@ -10,6 +10,8 @@ const initialState = {
   error: null,
   success: false,
   message: null,
+  isSuccess: false,
+  isError: false,
 };
 
 const authSlice = createSlice({
@@ -38,21 +40,27 @@ const authSlice = createSlice({
         .addCase(registerUser.rejected, (state, action) => {
           state.loading = false;
           state.error = action.payload;
+          state.isSuccess = false;
+          state.isError = true;
         })
         .addCase(userLogin.rejected, (state, action) => {
           state.loading = false;
           state.error = action.payload;
           state.message = action.payload;
+          state.isSuccess = false;
+          state.isError = true;
         }),
       builder
         .addCase(registerUser.fulfilled, (state, action) => {
           (state.loading = false),
             (state.success = true),
             (state.userInfo = action.payload);
+          state.isSuccess = true;
         })
         .addCase(userLogin.fulfilled, (state, action) => {
           state.loading = false;
           state.success = true;
+          state.isSuccess = true;
           state.message = action.payload;
         });
   },

@@ -6,17 +6,11 @@ import { useNavigate } from "react-router-dom";
 
 import ClipLoader from "react-spinners/ClipLoader";
 import { registerUser } from "../../features/actions/authActions";
-import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
-import SuccessMessage from "../../components/SuccessMessage/SuccessMessage";
 
 const Signup = () => {
-  const { loading, error, success, userInfo } = useSelector(
-    (state) => state.auth
-  );
+  const { loading, error } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
   const { register, handleSubmit } = useForm();
-
-  const [verificationSent, setVerificationSent] = useState(false);
 
   const navigate = useNavigate();
 
@@ -33,7 +27,7 @@ const Signup = () => {
       <div className="lg:mt-20 mt-6 md:border-r-2">
         <img
           src="https://png.pngtree.com/thumb_back/fh260/background/20230613/pngtree-ecommerce-website-with-shopping-cart-with-the-shopping-cart-on-a-image_2975658.jpg"
-          className="w-full h-full rounded-xl"
+          className="md:w-[100%] md:h-[60%] lg:w-full lg:h-full  rounded-xl"
         />
       </div>
 
@@ -44,7 +38,6 @@ const Signup = () => {
           password.
         </p>
 
-        {verificationSent && <h1> Thank You Mail Sent Successfully</h1>}
         <form
           className="space-y-1 md:space-y-2"
           onSubmit={handleSubmit(submitForm)}
@@ -64,6 +57,8 @@ const Signup = () => {
               placeholder="First name"
               {...register("firstName")}
             />
+
+            <div className="bg-red-500">{error && <h1> Error</h1>}</div>
           </div>
           <div>
             <label

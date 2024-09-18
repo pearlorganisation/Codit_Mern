@@ -1,7 +1,8 @@
 import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
+import { toast } from "react-toastify";
 
-const localURL = "http://localhost:4000";
+const localURL = "http://localhost:8000";
 
 export const registerUser = createAsyncThunk(
   "auth/register",
@@ -21,17 +22,22 @@ export const registerUser = createAsyncThunk(
         config
       );
 
-      //   if (data.message) {
-      //     console.log("Message", data.message);
-      //   }
+      if (data.success == true) {
+        console.log("Message", data.message);
+        toast.success(data.message);
+      } else {
+        toast.error(data.message);
+      }
 
       console.log("Register Data", data);
     } catch (error) {
       console.log("Error 123", error);
       // return custom error message from backend if present
       if (error.response && error.response.data.message) {
+        toast.error(error.response.data.message);
         return rejectWithValue(error.response.data.message);
       } else {
+        toast.error(error.message);
         return rejectWithValue(error.message);
       }
     }
@@ -53,9 +59,15 @@ export const userLogin = createAsyncThunk(
         config
       );
 
-      console.log("Login Data", data);
+      if (data.success == true) {
+        console.log("Message", data.message);
+        localStorage.setItem("isLoggedIn", true);
+        toast.success(data.message);
+      } else {
+        toast.error(data.message);
+      }
 
-      localStorage.setItem("isLoggedIn", true);
+      console.log("Login Data", data);
 
       return data;
     } catch (error) {

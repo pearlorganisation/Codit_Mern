@@ -1,9 +1,12 @@
 import { useEffect, useRef, useState } from "react";
-import { NavLink } from "react-router-dom";
+import { FaShoppingBasket } from "react-icons/fa";
+import { useSelector } from "react-redux";
+import { Link, NavLink } from "react-router-dom";
 
 // Avtar with darpdown menu
 const AvatarMenue = () => {
   const [state, setState] = useState(false);
+
   const profileRef = useRef();
 
   const navigation = [
@@ -57,8 +60,16 @@ const AvatarMenue = () => {
 export default function Header() {
   const [state, setState] = useState(false);
 
+  const { cartData } = useSelector((state) => state.cart);
+
+  const cartQuantity = cartData.length;
+
+  const { wishlistData } = useSelector((state) => state.wishlist);
+
+  console.log("Wihslist data", wishlistData);
+
   // Replace / paths with your paths
-  const navigation = [{ img: "wishlist.svg", path: "/" }];
+  const navigation = [{ img: "wishlist.svg", path: "/wishlist" }];
 
   const submenuNav = [
     { title: "Home", path: "/" },
@@ -162,6 +173,18 @@ export default function Header() {
                 </li>
               );
             })}
+
+            <Link to={"/checkout"}>
+              <div className="relative">
+                <FaShoppingBasket className="text-2xl cursor-pointer hover:text-purple-600 transition transform duration-200" />
+
+                {cartQuantity > 0 && (
+                  <div className="absolute bg-purple-600 text-xs w-5 h-5 flex justify-center items-center animate-bounce -top-1 -right-2 rounded-full top- text-white">
+                    {cartQuantity}
+                  </div>
+                )}
+              </div>
+            </Link>
             <AvatarMenue />
           </ul>
         </div>
