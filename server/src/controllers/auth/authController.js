@@ -14,43 +14,26 @@ import { fileURLToPath } from "url";
 dotenv.config();
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
-
-function generateToken(userData)
-{
+function generateToken(userData) {
   return jwt.sign(userData, process.env.JWT_SECRET_KEY, {
-    expiresIn: '5min',
+    expiresIn: "5min",
   });
 }
 
-
 //Email Verfication Controller
-export const verifyMail = asyncHandler(async (req,res,next) =>{
-
+export const verifyMail = asyncHandler(async (req, res, next) => {
   const decode = jwt.verify(req.params.token, process.env.JWT_SECRET_KEY);
-  
 
   if (!decode) {
     return next(new ApiErrorResponse("Failed to decode token", 401));
   }
 
-    
-   
-  const {
-    firstName,
-    lastName,
-    email,
-    password,
-    phoneNumber,
-  } = decode;
-
-
+  const { firstName, lastName, email, password, phoneNumber } = decode;
 
   // Ensure all necessary fields are present
   if (!firstName || !lastName || !email || !password || !phoneNumber) {
     return next(new ApiErrorResponse("Incomplete data from token", 400));
   }
-
-
 
   // Hash the password before storing it
   const hashedPassword = await bcrypt.hash(password, 10);
@@ -108,12 +91,14 @@ export const registerUser = asyncHandler(async (req, res) => {
     return next(new ApiErrorResponse("User already exits", 400));
   }
 
-  
-  const token =  generateToken({firstName, lastName, email, password, phoneNumber });
-  await sendMail(email,token);
-
- 
-
+  const token = generateToken({
+    firstName,
+    lastName,
+    email,
+    password,
+    phoneNumber,
+  });
+  await sendMail(email, token);
 
   res
     .status(200)
@@ -146,9 +131,11 @@ export const loginUser = asyncHandler(async (req, res) => {
       token: genToken(findUser?._id),
     };
 
-    res
-      .status(200)
-      .json({ success: true, message: "Logged in successfully" });
+    res.status(200).json({
+      success: true,
+      message: "Logged in successfully",
+      token: data.token,
+    });
   } else {
     throw new Error("Invalid Credentails");
   }
@@ -174,21 +161,19 @@ export const logout = asyncHandler(async (req, res) => {
     secure: true,
   });
   // console.log("My Refresh Token after logout", refreshToken);
-  return res.status(204).json({ message: "Logged put Successfully" });
+  return res.status(200).json({ message: "Logged out Successfully" });
 });
 
 export const profile = asyncHandler(async (req, res) => {
   const user = req.user;
- 
 
   res.status(200).json({
     success: true,
     message: "The Profile of Logged In User",
     data: {
-
-      email : user.email,
+      email: user.email,
       firstName: user.firstName,
-      lastName: user.lastName
+      lastName: user.lastName,
     },
   });
 });
