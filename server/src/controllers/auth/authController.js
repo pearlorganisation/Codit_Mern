@@ -11,6 +11,7 @@ import ejs from "ejs";
 import path from "path";
 import { dirname } from "path";
 import { fileURLToPath } from "url";
+import ApiErrorResponse from "../../utils/ApiErrorResponse.js";
 dotenv.config();
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
@@ -22,6 +23,7 @@ function generateToken(userData) {
 
 //Email Verfication Controller
 export const verifyMail = asyncHandler(async (req, res, next) => {
+  console.log("we camer here", req.params.token);
   const decode = jwt.verify(req.params.token, process.env.JWT_SECRET_KEY);
 
   if (!decode) {
@@ -68,21 +70,9 @@ export const verifyMail = asyncHandler(async (req, res, next) => {
     .redirect(`${process.env.REACT_PUBLIC_BASE_URL}/`);
 });
 
-export const registerUser = asyncHandler(async (req, res) => {
+export const registerUser = asyncHandler(async (req, res, next) => {
   const { firstName, lastName, email, password, phoneNumber } = req.body;
 
-  const findUser = await User.findOne({ email });
-
-  if (!findUser) {
-    const newUser = await User.create(req.body);
-    res.status(201).json({
-      message: "User created successfully",
-      data: newUser,
-      success: true,
-    });
-  } else {
-    throw new Error("User already exists");
-  }
   if (!firstName || !lastName || !email || !password || !phoneNumber) {
     return next(new ApiErrorResponse("All fields are required", 400));
   }
@@ -105,9 +95,12 @@ export const registerUser = asyncHandler(async (req, res) => {
     .json({ success: true, message: "Check You Email and verify it !! " });
 });
 
-export const loginUser = asyncHandler(async (req, res) => {
+export const loginUser = asyncHandler(async (req, res, next) => {
   const { email, password } = req.body;
 
+  if (!email || !password) {
+    return next(new ApiErrorResponse("All Fields are required", 400));
+  }
   const findUser = await User.findOne({ email });
 
   if (findUser && (await findUser.isPasswordCorrect(password))) {
@@ -137,7 +130,7 @@ export const loginUser = asyncHandler(async (req, res) => {
       token: data.token,
     });
   } else {
-    throw new Error("Invalid Credentails");
+    return next(new ApiErrorResponse("Invalid Credentials", 400));
   }
 });
 

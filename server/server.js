@@ -11,17 +11,17 @@ import { productRouter } from "./src/routes/product/product.js";
 import { categoryRouter } from "./src/routes/category/category.js";
 import { subCategoryRouter } from "./src/routes/subCategory/subCategory.js";
 import { contactUsRouter } from "./src/routes/contact_us/contact_us.js";
-
+import { couponRouter } from "./src/routes/coupon/coupon.js";
 dotenv.config();
 const app = express();
 
 const PORT = process.env.PORT || 8000;
 
 app.use(express.json({ extended: false }));
-app.use(morgan('dev'));
+app.use(morgan("dev"));
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: ["http://localhost:5173", "http://localhost:5174"],
     methods: ["GET", "POST", "PUT", "DELETE"],
   })
 );
@@ -36,6 +36,7 @@ app.use("/api/v1/product", productRouter);
 app.use("/api/v1/category", categoryRouter);
 app.use("/api/v1/sub-category", subCategoryRouter);
 app.use("/api/v1/contact-us", contactUsRouter);
+app.use("/api/v1/coupon", couponRouter);
 
 //Test Routes
 app.get("/", (req, res) => {
