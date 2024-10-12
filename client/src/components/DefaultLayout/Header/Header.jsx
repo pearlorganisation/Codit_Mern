@@ -59,6 +59,7 @@ const AvatarMenue = () => {
 
 export default function Header() {
   const [state, setState] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const { cartData } = useSelector((state) => state.cart);
 
@@ -189,16 +190,48 @@ export default function Header() {
           </ul>
         </div>
       </div>
-      <nav className="border poppins-semibold ">
-        <ul className=" md:hidden lg:flex  justify-center items-center gap-x-3 max-w-screen-xl mx-auto px-4 overflow-x-auto lg:px-8">
+      <nav className="border poppins-semibold">
+        {/* Dropdown Button for Mobile */}
+        <div className="md:hidden flex justify-between items-center max-w-screen-xl mx-auto px-4">
+          <button
+            onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+            className="p-3 text-gray-700 border-b-2 border-b-transparent hover:border-b-pink-500 duration-150"
+          >
+            Menu
+          </button>
+        </div>
+
+        {/* Dropdown for Mobile */}
+        <ul
+          className={`${isDropdownOpen ? "block" : "hidden"
+            } md:hidden bg-white shadow-lg p-4`}
+        >
           {submenuNav.map((item, idx) => {
             return (
               <NavLink
                 key={idx}
                 to={item.path}
                 className={({ isActive }) =>
-                  `block p-3  text-gray-700 border-b-2 border-b-transparent hover:border-b-pink-500  duration-150 ${
-                    isActive ? "border-b-pink-500 " : ""
+                  `block p-3 text-gray-700 border-b-2 border-b-transparent hover:border-b-pink-500 duration-150 ${isActive ? "border-b-pink-500 " : ""
+                  }`
+                }
+                onClick={() => setIsDropdownOpen(false)} 
+              >
+                {item.title}
+              </NavLink>
+            );
+          })}
+        </ul>
+
+        {/* Regular Nav for larger screens */}
+        <ul className="hidden md:hidden lg:flex justify-center items-center gap-x-3 max-w-screen-xl mx-auto px-4 lg:px-8">
+          {submenuNav.map((item, idx) => {
+            return (
+              <NavLink
+                key={idx}
+                to={item.path}
+                className={({ isActive }) =>
+                  `block p-3 text-gray-700 border-b-2 border-b-transparent hover:border-b-pink-500 duration-150 ${isActive ? "border-b-pink-500 " : ""
                   }`
                 }
               >
