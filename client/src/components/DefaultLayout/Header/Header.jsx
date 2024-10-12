@@ -35,7 +35,7 @@ const AvatarMenue = () => {
         </button>
       </div>
       <ul
-        className={`bg-white top-14 right-0 mt-6 space-y-6 lg:absolute lg:border lg:rounded-md lg:w-52 lg:shadow-md lg:space-y-0 lg:mt-0 ${
+        className={`bg-white top-14 right-0 mt-2 space-y-2 lg:absolute lg:border lg:rounded-md lg:w-52 lg:shadow-md lg:space-y-0 lg:mt-0 ${
           state ? "" : "lg:hidden"
         }`}
       >
@@ -49,7 +49,7 @@ const AvatarMenue = () => {
             </a>
           </li>
         ))}
-        <button className="block w-full text-justify text-gray-600 hover:text-gray-900 border-t py-3 lg:hover:bg-gray-50 lg:p-3">
+        <button className="block w-full text-justify text-gray-600 hover:text-gray-900 border-t py-1 lg:hover:bg-gray-50 lg:p-3">
           Logout
         </button>
       </ul>
@@ -87,7 +87,7 @@ export default function Header() {
     <header className="text-base lg:text-sm">
       <div
         className={`bg-white items-center gap-x-14 px-4 max-w-screen-xl mx-auto lg:flex lg:px-8 lg:static ${
-          state ? "h-full fixed inset-x-0" : ""
+          state ? "h-min fixed inset-x-0" : ""
         }`}
       >
         <div className="flex items-center justify-between py-3 lg:py-5 lg:block">
@@ -130,7 +130,7 @@ export default function Header() {
           </div>
         </div>
         <div
-          className={`nav-menu flex-1 pb-28 mt-8 overflow-y-auto max-h-screen lg:block lg:overflow-visible lg:pb-0 lg:mt-0 ${
+          className={`nav-menu flex-1 mt-2 overflow-y-auto max-h-screen lg:block lg:overflow-visible lg:pb-0 lg:mt-0 ${
             state ? "" : "hidden"
           }`}
         >
