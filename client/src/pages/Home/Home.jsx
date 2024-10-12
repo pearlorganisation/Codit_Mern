@@ -7,6 +7,10 @@ import "swiper/css";
 import "swiper/css/pagination";
 
 import { Pagination } from "swiper/modules";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { getAllProducts } from "../../features/actions/productActions";
+import { getAllCoupons } from "../../features/actions/couponActions";
 
 const dataForCards = [
   {
@@ -111,6 +115,19 @@ const homeSwipper = [
 ];
 
 const Home = () => {
+  const dispatch = useDispatch();
+  const productState = useSelector((state) => state.product);
+
+  const { coupons } = useSelector((state) => state.coupon);
+
+  console.log("Product State", productState);
+  console.log("Coupon State", coupons);
+
+  useEffect(() => {
+    dispatch(getAllProducts());
+    dispatch(getAllCoupons());
+  }, []);
+
   return (
     <div className=" space-y-8">
       <div className="">
@@ -242,6 +259,27 @@ const Home = () => {
               </div>
             );
           })}
+        </div>
+      </div>
+
+      <div className="grid space-y-4">
+        <h1> COUPONS CORNER </h1>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
+          {coupons.map((coupon) => (
+            <div className="flex flex-row gap-3" key={coupon._id}>
+              <div className="w-[50%]">
+                <img src={coupon.couponImage} alt={coupon.name} className="" />
+              </div>
+
+              <div className="">
+                <h1> Name : {coupon.name}</h1>
+
+                <h3> Discount : {coupon.discount}</h3>
+                <h4> CODE : {coupon.couponcode}</h4>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </div>

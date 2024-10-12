@@ -1,11 +1,16 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const Sidebar = () => {
   return (
     <div className="bg-white">
       <div className="flex flex-col gap-2 mt-2">
-        <div className="p-2 bg-red-300 rounded-sm">
-          <Link to={"/dashboard"} className="flex flex-row  gap-3">
+        <div className="p-2 bg-white rounded-sm">
+          <NavLink
+            to={"/dashboard"}
+            className={({ isActive, isPending }) =>
+              `flex flex-row gap-3 ${isActive ? "bg-red-300" : "bg-white"}`
+            }
+          >
             <svg
               width="20"
               height="20"
@@ -42,11 +47,16 @@ const Sidebar = () => {
             </svg>
 
             <h1> Dashboard </h1>
-          </Link>
+          </NavLink>
         </div>
 
         <div className=" p-2">
-          <Link to={"/dashorderhistory"} className="flex flex-row gap-2">
+          <NavLink
+            to={"/dashorderhistory"}
+            className={({ isActive, isPending }) =>
+              `flex flex-row gap-3 ${isActive ? "bg-red-300" : "bg-white"}`
+            }
+          >
             <svg
               width="20"
               height="20"
@@ -92,11 +102,16 @@ const Sidebar = () => {
             </svg>
 
             <h1> Order History </h1>
-          </Link>
+          </NavLink>
         </div>
 
         <div className="p-2">
-          <Link to={"/dashtrackorder"} className="flex flex-row gap-2">
+          <NavLink
+            to={"/dashtrackorder"}
+            className={({ isActive, isPending }) =>
+              `flex flex-row gap-3 ${isActive ? "bg-red-300" : "bg-white"}`
+            }
+          >
             <svg
               width="20"
               height="20"
@@ -128,11 +143,16 @@ const Sidebar = () => {
             </svg>
 
             <h1> Track Order </h1>
-          </Link>
+          </NavLink>
         </div>
 
         <div className="p-2">
-          <Link to={"/dashshoppingcart"} className="flex flex-row gap-2">
+          <NavLink
+            to={"/dashshoppingcart"}
+            className={({ isActive, isPending }) =>
+              `flex flex-row gap-3 ${isActive ? "bg-red-300" : "bg-white"}`
+            }
+          >
             <svg
               width="21"
               height="20"
@@ -162,11 +182,16 @@ const Sidebar = () => {
             </svg>
 
             <h1> Shopping Cart </h1>
-          </Link>
+          </NavLink>
         </div>
 
         <div className="p-2">
-          <Link to={"/dashwishlist"} className="flex flex-row gap-2">
+          <NavLink
+            to={"/dashwishlist"}
+            className={({ isActive, isPending }) =>
+              `flex flex-row gap-3 ${isActive ? "bg-red-300" : "bg-white"}`
+            }
+          >
             <svg
               width="20"
               height="20"
@@ -184,11 +209,16 @@ const Sidebar = () => {
             </svg>
 
             <h1> Wishlist </h1>
-          </Link>
+          </NavLink>
         </div>
 
         <div className="p-2">
-          <Link to={"/dashcompare"} className="flex flex-row gap-2">
+          <NavLink
+            to={"/dashcompare"}
+            className={({ isActive, isPending }) =>
+              `flex flex-row gap-3 ${isActive ? "bg-red-300" : "bg-white"}`
+            }
+          >
             <svg
               width="20"
               height="20"
@@ -227,11 +257,16 @@ const Sidebar = () => {
             </svg>
 
             <h1> Compare</h1>
-          </Link>
+          </NavLink>
         </div>
 
         <div className="p-2">
-          <Link to={"/dashcards"} className="flex flex-row gap-2">
+          <NavLink
+            to={"/dashcards"}
+            className={({ isActive, isPending }) =>
+              `flex flex-row gap-3 ${isActive ? "bg-red-300" : "bg-white"}`
+            }
+          >
             <svg
               width="20"
               height="20"
@@ -270,11 +305,16 @@ const Sidebar = () => {
             </svg>
 
             <h1> Cards and Addresses </h1>
-          </Link>
+          </NavLink>
         </div>
 
         <div className="p-2">
-          <Link to={"/dashbrowsinghistory"} className="flex flex-row gap-2">
+          <NavLink
+            to={"/dashbrowsinghistory"}
+            className={({ isActive, isPending }) =>
+              `flex flex-row gap-3 ${isActive ? "bg-red-300" : "bg-white"}`
+            }
+          >
             <svg
               width="20"
               height="20"
@@ -313,11 +353,16 @@ const Sidebar = () => {
             </svg>
 
             <h1> Browsing History </h1>
-          </Link>
+          </NavLink>
         </div>
 
         <div className="p-2">
-          <Link to={"/dashsettings"} className="flex flex-row gap-2">
+          <NavLink
+            to={"/dashsettings"}
+            className={({ isActive, isPending }) =>
+              `flex flex-row gap-3 ${isActive ? "bg-red-300" : "bg-white"}`
+            }
+          >
             <svg
               width="20"
               height="20"
@@ -342,11 +387,16 @@ const Sidebar = () => {
             </svg>
 
             <h1> Settings </h1>
-          </Link>
+          </NavLink>
         </div>
 
         <div className="p-2">
-          <Link to={"/dashlogout"} className="flex flex-row gap-2">
+          <NavLink
+            to={"/dashlogout"}
+            className={({ isActive, isPending }) =>
+              `flex flex-row gap-3 ${isActive ? "bg-red-300" : "bg-white"}`
+            }
+          >
             <svg
               width="20"
               height="20"
@@ -378,7 +428,7 @@ const Sidebar = () => {
             </svg>
 
             <h1> Logout </h1>
-          </Link>
+          </NavLink>
         </div>
       </div>
     </div>

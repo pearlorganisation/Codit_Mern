@@ -61,7 +61,7 @@ const TrackOrder = () => {
   return (
     <div>
       <TopBar />
-      <BreadCrumb />
+      <BreadCrumb title="Track Order" />
 
       <div className="grid grid-cols-2 lg:grid-cols-[25%_auto] mt-6">
         <Sidebar />

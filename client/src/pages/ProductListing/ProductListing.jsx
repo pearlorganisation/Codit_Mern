@@ -1,3 +1,4 @@
+import { useSelector } from "react-redux";
 import ProductListingCard from "../../components/Cards/ProductListingCard/ProductListingCard";
 import MultiRangeSlider from "./SupportingComponents/MultiRangeSlider";
 
@@ -221,6 +222,7 @@ const products2 = [
 ];
 
 const Product = () => {
+  const products = useSelector((state) => state.product.products);
   return (
     <div className="">
       <div className="p-4 flex gap-10 bg-[#F2F4F5] my-2 bg-color-black">
@@ -355,7 +357,7 @@ const Product = () => {
 
         <div className="border p-5">
           <div className="grid grid-cols-3 gap-10  justify-between items-center">
-            {products2.map((data) => {
+            {products?.map((data) => {
               return <ProductListingCard data={data} key={data.id} />;
             })}
           </div>

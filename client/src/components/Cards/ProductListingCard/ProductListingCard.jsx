@@ -7,14 +7,11 @@ import {
   addToWishList,
   removeFromWishList,
 } from "../../../features/slices/wishlist/wishlistSlice";
+import { Link } from "react-router-dom";
 
 const ProductListingCard = ({ data }) => {
   const { cartData } = useSelector((state) => state.cart);
-
-  // const state = useSelector((state) => state.wishlist.wishList).some(
-  //   (p) => p?.id?.toString() === id
-  // );
-
+  console.log(data?.variant, "aewreet");
   const [isAdded, setIsAdded] = useState(false);
   const [isWishAdded, setIsWishAdded] = useState(false);
 
@@ -57,26 +54,28 @@ const ProductListingCard = ({ data }) => {
       <span className="bg-white text-[#D0021B] text-xs tracking-wide font-extrabold  z-20 absolute top-2 left-2 p-1">
         30% OFF
       </span>
-      <a key={"/"} className="group">
+      <Link to={`/product/${data?._id}`} className="group">
         <div className="overflow-hidden rounded-lg bg-gray-200 relative">
           <img
-            alt={data.name}
-            src={data.image}
+            alt={data?.name}
+            src={data?.image}
             className="h-44 w-44 bg-cover object-center group-hover:opacity-75"
           />
           <button onClick={() => {}}>
             <img src="wishlist.svg" className="absolute right-8 top-4" />
           </button>
         </div>
-      </a>
+      </Link>
 
       <div className=" ">
-        <h3 className="text-xs">{data.name}</h3>
+        <h3 className="text-xs">{data?.name}</h3>
         <div className="flex gap-2 items-center">
           {" "}
-          <p className="mt-1 text-[20px] font-bold tracking">${data.price}</p>
+          <p className="mt-1 text-[20px] font-bold tracking">
+            ${data?.variant[0].price}
+          </p>
           <p className="mt-1 text-[13px] line-through text-[#737373]">
-            ${data.price}
+            ${data?.variant[0].price}
           </p>
         </div>
         <span className="text-[11px] rounded-full px-[10px] py-[2px] font-medium tracking-tight bg-[#FFCA63]">

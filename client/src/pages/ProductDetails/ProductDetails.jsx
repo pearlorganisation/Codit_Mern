@@ -2,58 +2,10 @@ import { CiHeart, CiShare2, CiBookmark, CiStar } from "react-icons/ci";
 import { BiShoppingBag, BiSolidCommentDetail } from "react-icons/bi";
 import { TbTruckDelivery } from "react-icons/tb";
 import ProductListingCard from "../../components/Cards/ProductListingCard/ProductListingCard";
-
-const featureList = [
-  {
-    id: 1,
-    icon: <CiBookmark />,
-    title: "Free 1 year warranty",
-  },
-  {
-    id: 2,
-    icon: <CiShare2 />,
-    title: "Free Shipping and fastened delivery",
-  },
-  {
-    id: 3,
-    icon: <CiHeart />,
-    title: "100% Money Back Guarantee",
-  },
-  {
-    id: 4,
-    icon: <CiHeart />,
-    title: "24 Hour Customer Support",
-  },
-  {
-    id: 5,
-    icon: <CiHeart />,
-    title: "Secure Payment Method",
-  },
-];
-
-const shippingInfo = [
-  {
-    id: 1,
-
-    title: "Courier",
-    subtitle: "2-4 days free shipping",
-  },
-  {
-    id: 2,
-    subtitle: "up to one week $19.00",
-    title: "Local Shipping",
-  },
-  {
-    id: 3,
-    subtitle: "4-6 days, $29.00 ",
-    title: "UPS Ground Shipping",
-  },
-  {
-    id: 4,
-    title: "Ubishop Global Export",
-    subtitle: "3-4 days, $39.00",
-  },
-];
+import { useDispatch } from "react-redux";
+import { useParams } from "react-router-dom";
+import { getSingleProduct } from "../../features/actions/productActions";
+import { useEffect, useState } from "react";
 
 const products = [
   {
@@ -90,7 +42,249 @@ const products = [
   },
 ];
 
+const content = [
+  [
+    {
+      description:
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+      featureList: [
+        {
+          id: 1,
+          icon: <CiBookmark />,
+          title: "Free 1 year warranty",
+        },
+        {
+          id: 2,
+          icon: <CiShare2 />,
+          title: "Free Shipping and fastened delivery",
+        },
+        {
+          id: 3,
+          icon: <CiHeart />,
+          title: "100% Money Back Guarantee",
+        },
+        {
+          id: 4,
+          icon: <CiHeart />,
+          title: "24 Hour Customer Support",
+        },
+        {
+          id: 5,
+          icon: <CiHeart />,
+          title: "Secure Payment Method",
+        },
+      ],
+      shippingInfo: [
+        {
+          id: 1,
+
+          title: "Courier",
+          subtitle: "2-4 days free shipping",
+        },
+        {
+          id: 2,
+          subtitle: "up to one week $19.00",
+          title: "Local Shipping",
+        },
+        {
+          id: 3,
+          subtitle: "4-6 days, $29.00 ",
+          title: "UPS Ground Shipping",
+        },
+        {
+          id: 4,
+          title: "Ubishop Global Export",
+          subtitle: "3-4 days, $39.00",
+        },
+      ],
+    },
+  ],
+  [
+    {
+      description:
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+      featureList: [
+        {
+          id: 1,
+          icon: <CiBookmark />,
+          title: "Free 1 year warranty",
+        },
+        {
+          id: 2,
+          icon: <CiShare2 />,
+          title: "Free Shipping and fastened delivery",
+        },
+        {
+          id: 3,
+          icon: <CiHeart />,
+          title: "100% Money Back Guarantee",
+        },
+        {
+          id: 4,
+          icon: <CiHeart />,
+          title: "24 Hour Customer Support",
+        },
+        {
+          id: 5,
+          icon: <CiHeart />,
+          title: "Secure Payment Method",
+        },
+      ],
+      shippingInfo: [
+        {
+          id: 1,
+
+          title: "Courier",
+          subtitle: "2-4 days free shipping",
+        },
+        {
+          id: 2,
+          subtitle: "up to one week $19.00",
+          title: "Local Shipping",
+        },
+        {
+          id: 3,
+          subtitle: "4-6 days, $29.00 ",
+          title: "UPS Ground Shipping",
+        },
+        {
+          id: 4,
+          title: "Ubishop Global Export",
+          subtitle: "3-4 days, $39.00",
+        },
+      ],
+    },
+  ],
+  [
+    {
+      description:
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+      featureList: [
+        {
+          id: 1,
+          icon: <CiBookmark />,
+          title: "Free 1 year warranty",
+        },
+        {
+          id: 2,
+          icon: <CiShare2 />,
+          title: "Free Shipping and fastened delivery",
+        },
+        {
+          id: 3,
+          icon: <CiHeart />,
+          title: "100% Money Back Guarantee",
+        },
+        {
+          id: 4,
+          icon: <CiHeart />,
+          title: "24 Hour Customer Support",
+        },
+        {
+          id: 5,
+          icon: <CiHeart />,
+          title: "Secure Payment Method",
+        },
+      ],
+      shippingInfo: [
+        {
+          id: 1,
+
+          title: "Courier",
+          subtitle: "2-4 days free shipping",
+        },
+        {
+          id: 2,
+          subtitle: "up to one week $19.00",
+          title: "Local Shipping",
+        },
+        {
+          id: 3,
+          subtitle: "4-6 days, $29.00 ",
+          title: "UPS Ground Shipping",
+        },
+        {
+          id: 4,
+          title: "Ubishop Global Export",
+          subtitle: "3-4 days, $39.00",
+        },
+      ],
+    },
+  ],
+  [
+    {
+      description:
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+      featureList: [
+        {
+          id: 1,
+          icon: <CiBookmark />,
+          title: "Free 1 year warranty",
+        },
+        {
+          id: 2,
+          icon: <CiShare2 />,
+          title: "Free Shipping and fastened delivery",
+        },
+        {
+          id: 3,
+          icon: <CiHeart />,
+          title: "100% Money Back Guarantee",
+        },
+        {
+          id: 4,
+          icon: <CiHeart />,
+          title: "24 Hour Customer Support",
+        },
+        {
+          id: 5,
+          icon: <CiHeart />,
+          title: "Secure Payment Method",
+        },
+      ],
+      shippingInfo: [
+        {
+          id: 1,
+
+          title: "Courier",
+          subtitle: "2-4 days free shipping",
+        },
+        {
+          id: 2,
+          subtitle: "up to one week $19.00",
+          title: "Local Shipping",
+        },
+        {
+          id: 3,
+          subtitle: "4-6 days, $29.00 ",
+          title: "UPS Ground Shipping",
+        },
+        {
+          id: 4,
+          title: "Ubishop Global Export",
+          subtitle: "3-4 days, $39.00",
+        },
+      ],
+    },
+  ],
+];
+
 const ProductDetails = () => {
+  const { id } = useParams();
+  const dispatch = useDispatch();
+
+  const [activeContentIndex, setActiveContentIndex] = useState(0);
+
+  useEffect(() => {
+    getProduct();
+  }, []);
+
+  const getProduct = () => {
+    dispatch(getSingleProduct(id));
+  };
+
+  const handleAddTocart = () => {};
+
   return (
     <>
       <div className="bg-gray-100">
@@ -279,31 +473,44 @@ const ProductDetails = () => {
               <div className="flex space-x-4 mb-6">
                 <div className="w-40 border border-gray-500 rounded-xl items-center justify-center">
                   <form className="max-w-xs mx-auto">
-                    <div className="relative flex items-center justify-center mt-2">
+                    <div className="flex divide-x border w-max rounded-lg overflow-hidden">
                       <button
                         type="button"
-                        id="decrement-button"
-                        data-input-counter-decrement="counter-input"
-                        className="flex-shrink-0 bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:border-gray-600 hover:bg-gray-200 inline-flex items-center justify-center border border-gray-300 rounded-md h-5 w-5 focus:ring-gray-100 dark:focus:ring-gray-700 focus:ring-2 focus:outline-none"
+                        onClick={() => {}}
+                        className="flex items-center justify-center bg-gray-100 w-10 h-10 font-semibold"
                       >
-                        -
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="w-3 fill-current"
+                          viewBox="0 0 124 124"
+                        >
+                          <path
+                            d="M112 50H12C5.4 50 0 55.4 0 62s5.4 12 12 12h100c6.6 0 12-5.4 12-12s-5.4-12-12-12z"
+                            data-original="#000000"
+                          ></path>
+                        </svg>
                       </button>
-                      <input
-                        type="text"
-                        id="counter-input"
-                        data-input-counter
-                        className="flex-shrink-0 text-gray-900 dark:text-white border-0 bg-transparent text-sm font-normal focus:outline-none focus:ring-0 max-w-[2.5rem] text-center"
-                        placeholder=""
-                        value="12"
-                        required
-                      />
                       <button
                         type="button"
-                        id="increment-button"
-                        data-input-counter-increment="counter-input"
-                        className="flex-shrink-0 bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:border-gray-600 hover:bg-gray-200 inline-flex items-center justify-center border border-gray-300 rounded-md h-5 w-5 focus:ring-gray-100 dark:focus:ring-gray-700 focus:ring-2 focus:outline-none"
+                        className="bg-transparent w-10 h-10 font-semibold text-gray-800 text-base"
                       >
-                        +
+                        3
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => {}}
+                        className="flex justify-center items-center bg-gray-100 text-gray-800 w-10 h-10 font-semibold"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="w-3 fill-current"
+                          viewBox="0 0 42 42"
+                        >
+                          <path
+                            d="M37.059 16H26V4.941C26 2.224 23.718 0 21 0s-5 2.224-5 4.941V16H4.941C2.224 16 0 18.282 0 21s2.224 5 4.941 5H16v11.059C16 39.776 18.282 42 21 42s5-2.224 5-4.941V26h11.059C39.776 26 42 23.718 42 21s-2.224-5-4.941-5z"
+                            data-original="#000000"
+                          ></path>
+                        </svg>
                       </button>
                     </div>
                   </form>
@@ -350,37 +557,52 @@ const ProductDetails = () => {
             <div className="items-center justify-center text-sm font-medium text-center text-gray-500 border-b border-gray-200">
               <ul className="flex flex-wrap -mb-px items-center justify-center">
                 <li className="me-2">
-                  <a
-                    href="#"
-                    className="inline-block p-4  active  text-yellow-600 border-b-2 border-yellow-600 rounded-t-lg hover:text-gray-600 hover:border-gray-300"
+                  <button
+                    onClick={() => setActiveContentIndex(0)}
+                    className={`inline-block p-4  active ${
+                      activeContentIndex === 0
+                        ? "text-yellow-600 border-b-2 border-yellow-600"
+                        : ""
+                    }   rounded-t-lg hover:text-gray-600 hover:border-gray-300`}
                   >
                     DESCRIPTION
-                  </a>
+                  </button>
                 </li>
                 <li className="me-2">
-                  <a
-                    href="/"
-                    className="inline-block p-4 border-b-2 border-transparent rounded-t-lg "
-                    aria-current="page"
+                  <button
+                    onClick={() => setActiveContentIndex(1)}
+                    className={`inline-block p-4  active ${
+                      activeContentIndex === 1
+                        ? "text-yellow-600 border-b-2 border-yellow-600"
+                        : ""
+                    }   rounded-t-lg hover:text-gray-600 hover:border-gray-300`}
                   >
                     ADDITIONAL INFORMATION
-                  </a>
+                  </button>
                 </li>
                 <li className="me-2">
-                  <a
-                    href="/"
-                    className="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300"
+                  <button
+                    onClick={() => setActiveContentIndex(2)}
+                    className={`inline-block p-4  active ${
+                      activeContentIndex === 2
+                        ? "text-yellow-600 border-b-2 border-yellow-600"
+                        : ""
+                    }   rounded-t-lg hover:text-gray-600 hover:border-gray-300`}
                   >
                     SPECIFICATION
-                  </a>
+                  </button>
                 </li>
                 <li className="me-2">
-                  <a
-                    href="/"
-                    className="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300"
+                  <button
+                    onClick={() => setActiveContentIndex(3)}
+                    className={`inline-block p-4  active ${
+                      activeContentIndex === 3
+                        ? "text-yellow-600 border-b-2 border-yellow-600"
+                        : ""
+                    }   rounded-t-lg hover:text-gray-600 hover:border-gray-300`}
                   >
                     REVIEW
-                  </a>
+                  </button>
                 </li>
               </ul>
             </div>
@@ -388,50 +610,79 @@ const ProductDetails = () => {
 
           <hr />
 
-          <div className="flex grid-cols-3 gap-3 mt-20 items-start justify-between">
-            <div className="px-3 w-[40%]">
-              <h3 className="font-bold text-lg ">Description</h3>
+          {activeContentIndex === 0 && (
+            <div className="flex grid-cols-3 gap-3 mt-20 items-start justify-between">
+              <div className="px-3 w-[40%]">
+                <h3 className="font-bold text-lg ">Description</h3>
 
-              <p className="mt-4 font-normal text-md">
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry's standard dummy
-                text ever since the 1500s, when an unknown printer took a galley
-                of type and scrambled it to make a type specimen book. It has
-                survived not only five centuries, but also the leap into
-                electronic typesetting, remaining essentially unchanged. It was
-                popularised in the 1960s with the release of Letraset sheets
-                containing Lorem Ipsum passages, and more recently with desktop
-                publishing software like Aldus PageMaker including versions of
-                Lorem Ipsum.
-              </p>
-            </div>
+                {content[activeContentIndex][0].description}
+              </div>
 
-            <div className="w-[20%]">
-              <h3 className="font-bold text-lg ">Features</h3>
+              <div className="w-[20%]">
+                <h3 className="font-bold text-lg ">Features</h3>
 
-              <div className="mt-4">
-                {featureList.map((f) => (
-                  <ul key={f.id} className="flex gap-2 items-center">
-                    {f.icon}
-                    <li>{f.title}</li>
-                  </ul>
-                ))}
+                <div className="mt-4">
+                  {content[activeContentIndex][0].featureList.map((f) => (
+                    <ul key={f.id} className="flex gap-2 items-center">
+                      {f.icon}
+                      <li>{f.title}</li>
+                    </ul>
+                  ))}
+                </div>
+              </div>
+
+              <div className="w-[30%]">
+                <h3 className="font-bold text-lg ">Shipping Information</h3>
+
+                <div className="mt-4">
+                  {content[activeContentIndex][0].shippingInfo.map((f) => (
+                    <ul key={f.id} className="flex gap-2 items-center">
+                      <li>{f.title}</li>
+                      <li> {f.subtitle}</li>
+                    </ul>
+                  ))}
+                </div>
               </div>
             </div>
+          )}
 
-            <div className="w-[30%]">
-              <h3 className="font-bold text-lg ">Shipping Information</h3>
+          {activeContentIndex === 1 && (
+            <div className="flex grid-cols-3 gap-3 mt-20 items-start justify-between">
+              <div className="px-3 w-[40%]">
+                <h3 className="font-bold text-lg "> Additional Info</h3>
 
-              <div className="mt-4">
-                {shippingInfo.map((f) => (
-                  <ul key={f.id} className="flex gap-2 items-center">
-                    <li>{f.title}</li>
-                    <li> {f.subtitle}</li>
-                  </ul>
-                ))}
+                {content[activeContentIndex][0].description}
+
+                <p className="mt-4 font-normal text-md"></p>
+              </div>
+
+              <div className="w-[20%]">
+                <h3 className="font-bold text-lg ">Features</h3>
+
+                <div className="mt-4">
+                  {content[activeContentIndex][0].featureList.map((f) => (
+                    <ul key={f.id} className="flex gap-2 items-center">
+                      {f.icon}
+                      <li>{f.title}</li>
+                    </ul>
+                  ))}
+                </div>
+              </div>
+
+              <div className="w-[30%]">
+                <h3 className="font-bold text-lg ">Shipping Information</h3>
+
+                <div className="mt-4">
+                  {content[activeContentIndex][0].shippingInfo.map((f) => (
+                    <ul key={f.id} className="flex gap-2 items-center">
+                      <li>{f.title}</li>
+                      <li> {f.subtitle}</li>
+                    </ul>
+                  ))}
+                </div>
               </div>
             </div>
-          </div>
+          )}
         </div>
 
         <div className="ml-12">

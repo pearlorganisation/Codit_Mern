@@ -13,7 +13,7 @@ const Settings = () => {
     <div className="">
       <TopBar />
 
-      <BreadCrumb />
+      <BreadCrumb title="Settings" />
       <div className="grid grid-cols-2 lg:grid-cols-[25%_auto] mt-6 gap-8">
         <Sidebar />
 

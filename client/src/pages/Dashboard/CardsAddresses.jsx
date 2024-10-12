@@ -9,7 +9,7 @@ const CardsAddresses = () => {
     <div className="">
       <TopBar />
 
-      <BreadCrumb />
+      <BreadCrumb title="Cards and Addresses" />
       <div className="grid grid-cols-2 lg:grid-cols-[25%_auto] mt-6">
         <Sidebar />
         <div className="bg-white px-6">

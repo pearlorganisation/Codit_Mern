@@ -5,10 +5,15 @@ import { encryptTransform } from "redux-persist-transform-encrypt";
 import cartReducer from "./slices/cartSlice/cartSlice.js";
 import authReducer from "./slices/authSlice/authSlice.js";
 import wishlistReducer from "./slices/wishlist/wishlistSlice.js";
+import productReducer from "./slices/productSlice/productSlice.js";
+import couponReducer from "./slices/couponsSlice/couponsSlice.jsx";
+
 const rootReducer = combineReducers({
   cart: cartReducer,
   auth: authReducer,
   wishlist: wishlistReducer,
+  product: productReducer,
+  coupon: couponReducer,
 });
 
 // Redux-persist configuration

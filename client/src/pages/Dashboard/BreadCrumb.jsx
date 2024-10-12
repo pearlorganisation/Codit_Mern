@@ -1,6 +1,6 @@
 import React from "react";
 
-const BreadCrumb = () => {
+const BreadCrumb = ({ title }) => {
   return (
     <div className="bg-[#F2F4F5] mt-8 py-3">
       <nav className="flex" aria-label="Breadcrumb">
@@ -73,11 +73,41 @@ const BreadCrumb = () => {
                 />
               </svg>
 
-              <span className="ms-1 text-sm font-medium text-[#FF009C] md:ms-2 dark:text-gray-400">
+              <span
+                className={`ms-1 text-sm font-medium ${
+                  title ? `text-gray-700` : `text-[#FF009C]`
+                }  md:ms-2 dark:text-gray-400`}
+              >
                 Dashboard
               </span>
             </div>
           </li>
+
+          {title && (
+            <li aria-current="page">
+              <div className="flex items-center">
+                <svg
+                  width="12"
+                  height="12"
+                  viewBox="0 0 12 12"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M4.5 2.25L8.25 6L4.5 9.75"
+                    stroke="#77878F"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+
+                <span className="ms-1 text-sm font-medium text-[#2DA5F3] md:ms-2 dark:text-gray-400">
+                  {title}
+                </span>
+              </div>
+            </li>
+          )}
         </ol>
       </nav>
     </div>
