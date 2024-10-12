@@ -8,6 +8,10 @@ import { Link } from "react-router-dom";
 import TopBar from "./TopBar";
 import BreadCrumb from "./BreadCrumb";
 import Sidebar from "./Sidebar";
+import { useState } from "react";
+import UpdateModal from "../../components/UpdateModals/AccountUpdate";
+import AddressUpdate from "../../components/UpdateModals/AdrressUpdate";
+import CreditCard from "../../components/CreditCard/CreditCard";
 
 const orders = [
   {
@@ -131,8 +135,23 @@ const browsingHistory = [
 ];
 
 const Dashboard = () => {
+  const [edit, setEdit] = useState(false);
+  const [address,setAddressEdit] = useState(false)
+  const [creditModal, setCreditModal] = useState(false);
+  const handleEdit=()=>{
+    // e.preventDefault();
+    setEdit(!edit);
+  }
+
+  const handleAddress = ()=>{
+    setAddressEdit(!address);
+  }
+  const handleCredit = ()=>{
+    setCreditModal(!creditModal);
+  }
+
   return (
-    <div className="">
+    <div className="z-10">
       <TopBar />
 
       <BreadCrumb title="" />
@@ -190,12 +209,15 @@ const Dashboard = () => {
                 <span className="text-[#5F6C72] font-normal">+1-202-404 </span>
               </h3>
 
-              <button className="border-2 border-blue-100 rounded-md px-3 py-2 text-[#2DA5F3] mt-3">
-                {" "}
+              <button type="button" onClick={handleAddress} className="border-2 border-blue-100 rounded-md px-3 py-2 text-[#2DA5F3] mt-3">
+                
                 EDIT ACCOUNT
               </button>
             </div>
-
+            {/* update moal for updating the user profile */}
+              {edit && (<UpdateModal handleEdit={handleEdit} />)}
+            
+            
             <div className="mt-3  text-[#191C1F] font-semibold">
               <h1>BILLING ADDRESS </h1>
 
@@ -223,12 +245,13 @@ const Dashboard = () => {
                 <span className="text-[#5F6C72] font-normal">+1-202-404</span>
               </h3>
 
-              <button className="border-2 border-blue-100 rounded-md px-3 py-2 text-[#2DA5F3] mt-3">
+              <button type="button" onClick={handleAddress}  className="border-2 border-blue-100 rounded-md px-3 py-2 text-[#2DA5F3] mt-3">
                 {" "}
                 EDIT ADDRESS
               </button>
             </div>
-
+            {/*Billing Address Update Modal*/}
+            {address && (<AddressUpdate handleAddress={handleAddress} />)}
             <div className="mt-3">
               <div className="mt-3">
                 <div className="flex flex-row gap-2">
@@ -395,7 +418,7 @@ const Dashboard = () => {
               <h1 className="text-[#191C1F]">PAYMENT OPTION</h1>
               <div className="flex flex-row gap-2 items-center justify-center">
                 <h3 className="text-[#FA8232]">Add Card </h3>
-                <svg
+                <button type="button" onClick={handleCredit}> <svg
                   width="20"
                   height="20"
                   viewBox="0 0 20 20"
@@ -416,8 +439,10 @@ const Dashboard = () => {
                     stroke-linecap="round"
                     stroke-linejoin="round"
                   />
-                </svg>
+                </svg></button>
+                
               </div>
+              {creditModal && (<CreditCard handleCredit={handleCredit} />)}
             </div>
 
             <div className="bg-white flex mt-4">
@@ -790,6 +815,7 @@ const Dashboard = () => {
           </div>
         </div>
       </div>
+     
     </div>
   );
 };
