@@ -102,8 +102,10 @@ export const loginUser = asyncHandler(async (req, res, next) => {
     return next(new ApiErrorResponse("All Fields are required", 400));
   }
   const findUser = await User.findOne({ email });
-
-  if (findUser && (await findUser.isPasswordCorrect(password))) {
+  
+  console.log(findUser, "find Uer");
+  if (findUser && (findUser.isPasswordCorrect(password))) {
+  
     const refreshToken = genRefreshToken(findUser?._id, findUser?.email);
 
     const updateUser = await User.findByIdAndUpdate(
@@ -157,6 +159,7 @@ export const logout = asyncHandler(async (req, res) => {
   return res.status(200).json({ message: "Logged out Successfully" });
 });
 
+
 export const profile = asyncHandler(async (req, res) => {
   const user = req.user;
 
@@ -170,3 +173,12 @@ export const profile = asyncHandler(async (req, res) => {
     },
   });
 });
+
+
+export const getAllUsers = asyncHandler( async (req,res)=> {
+  const user = await User.find();
+
+  if(user.length === 0 ) return res.status(404).json({ success: false, message:"No Users found", })
+
+  res.status(200).json({ success: true, message:"Users found successfully", data: user})
+}) 
