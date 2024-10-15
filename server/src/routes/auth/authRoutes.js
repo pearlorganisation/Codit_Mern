@@ -7,6 +7,7 @@ import {
   logout,
   profile,
   verifyMail,
+  getAllUsers,
 } from "../../controllers/auth/authController.js";
 import {
   isAdmin,
@@ -20,4 +21,6 @@ router.route("/logout").get(logout);
 router.route("/verify/:token").get(verifyMail);
 // router.route("/profile").get(isAuthMiddleware, profile);
 router.get("/profile", isAuthMiddleware, profile);
+
+router.get("/all-users", isAuthMiddleware, isAdmin, getAllUsers);
 export default router;

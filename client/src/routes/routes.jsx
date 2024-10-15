@@ -21,6 +21,7 @@ import Compare from "../pages/Dashboard/Compare";
 import CardsAddresses from "../pages/Dashboard/CardsAddresses";
 import BrowsingHistory from "../pages/Dashboard/BrowsingHistory";
 import Cart from "../pages/Cart/Cart";
+import AdminDashboard from "../admin/pages/Dashboard/Dashboard";
 
 const routes = createBrowserRouter([
   {
@@ -106,6 +107,10 @@ const routes = createBrowserRouter([
         element: <Cart />,
       },
     ],
+  },
+  {
+    path: "/admin",
+    element: <AdminDashboard />,
   },
 ]);
 

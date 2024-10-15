@@ -15,8 +15,8 @@ export default async function sendMail(email, verificationToken) {
     port: 587,
     secure: false,
     auth: {
-      user: "shubhammamgain@pearlorganisation.com",
-      pass: "zkgt xdmr fziw vhnr",
+      user: process.env.NODEMAILER_EMAIL,
+      pass: process.env.NODEMAILER_PASSWORD,
     },
   });
 
@@ -30,7 +30,7 @@ export default async function sendMail(email, verificationToken) {
 
   // Customize the text or HTML content to include the verification link
   const mailOptions = {
-    from: "Shashanknegi@pearlorganisation.com",
+    from: process.env.NODEMAILER_EMAIL,
     to: email,
     subject: "Verify Your Email",
     html: data,
