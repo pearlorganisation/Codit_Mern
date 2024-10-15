@@ -21,6 +21,8 @@ import Compare from "../pages/Dashboard/Compare";
 import CardsAddresses from "../pages/Dashboard/CardsAddresses";
 import BrowsingHistory from "../pages/Dashboard/BrowsingHistory";
 import Cart from "../pages/Cart/Cart";
+import MensCollection from "../components/MensCollection/mensCollection";
+import WomensCollection from "../components/WomensCollection/WomensCollection";
 
 const routes = createBrowserRouter([
   {
@@ -105,6 +107,15 @@ const routes = createBrowserRouter([
         path: "cart",
         element: <Cart />,
       },
+      {
+        path:"mens",
+        element: <MensCollection />
+      },
+      {
+        path:"womens",
+        element: <WomensCollection />
+      }
+
     ],
   },
 ]);

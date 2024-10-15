@@ -75,6 +75,10 @@ const seasonCollection = [
     imagePath: "season_Collection.png",
   },
   {
+    name: "Monsoon",
+    imagePath: "season_Collection.png",
+  },
+  {
     name: "Spring",
     imagePath: "season_Collection.png",
   },

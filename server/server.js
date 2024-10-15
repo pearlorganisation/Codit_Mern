@@ -12,6 +12,7 @@ import { categoryRouter } from "./src/routes/category/category.js";
 import { subCategoryRouter } from "./src/routes/subCategory/subCategory.js";
 import { contactUsRouter } from "./src/routes/contact_us/contact_us.js";
 import { couponRouter } from "./src/routes/coupon/coupon.js";
+import addressRouter from "./src/routes/address/addressRoutes.js"
 dotenv.config();
 const app = express();
 
@@ -37,7 +38,7 @@ app.use("/api/v1/category", categoryRouter);
 app.use("/api/v1/sub-category", subCategoryRouter);
 app.use("/api/v1/contact-us", contactUsRouter);
 app.use("/api/v1/coupon", couponRouter);
-
+app.use("/api/v1/address",addressRouter);
 //Test Routes
 app.get("/", (req, res) => {
   res.send("Server up and running");

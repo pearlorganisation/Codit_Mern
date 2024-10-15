@@ -1,6 +1,6 @@
 import { asyncHandler } from "../utils/asyncHandler";
 import ApiErrorResponse from "../utils/ApiErrorResponse";
-
+import User from "../models/user/user";
 export const verifyToken = asyncHandler(async (req, res, next) => {
   const { access_token } = req.cookies;
   console.log(`Middle - access_token : ${access_token} ---`);
