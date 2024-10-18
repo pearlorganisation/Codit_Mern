@@ -6,11 +6,12 @@ import {
   deleteCoupon,
   getAllCoupons,
   getCouponById,
+  updateCoupon,
 } from "../../controllers/coupon/couponController.js";
 
 const router = express.Router();
 
 router.route("/").post(upload.single("image"), createCoupon).get(getAllCoupons);
-router.route("/:id").get(getCouponById).delete(deleteCoupon);
+router.route("/:id").put(upload.single("image"),updateCoupon).get(getCouponById).delete(deleteCoupon);
 
 export const couponRouter = router;

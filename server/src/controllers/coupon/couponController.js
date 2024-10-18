@@ -69,3 +69,24 @@ export const deleteCoupon = asyncHandler(async (req, res, next) => {
     .status(200)
     .json({ success: true, message: "Coupon Deleted Successfully" });
 });
+
+/**---------------------Controller for edit by Id-------------------------------------------- */
+
+export const updateCoupon = asyncHandler(async(req,res)=>{
+  // get the id of coupon
+  const { id } = req.params;
+  validateMongodbID(id);
+ 
+  const { name, couponcode, discount } = req.body
+  const imageUrl = await cloudinary.uploader.upload(req.file.path);
+  const updatedCoupon = await Coupon.findByIdAndUpdate(id,{
+    name,
+    couponcode,
+    discount,
+    couponImage: imageUrl.secure_url
+  },
+{new:true})
+  if(!updatedCoupon){
+    return res.status(400).json({message:"Failed to create the coupon"})
+  }res.status(200).json({message:"updated the coupon",data: updatedCoupon})
+})
