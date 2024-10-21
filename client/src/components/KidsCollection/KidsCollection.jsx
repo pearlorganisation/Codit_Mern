@@ -86,23 +86,10 @@ const KidsCollection = () => {
             {/* Kids collection */}
             {/* {section && ()} */}
             <div className='grid space-y-4'>
-                <div className='w-full bg-slate-300 flex flex-row mt-8 px-2 justify-between'><span className='text-2xl font-semibold'>Kids Collection</span><button className='text-2xl font-semibold' onClick={handleSelect}><select><option>All</option></select></button>
-                    {section && (
-                        <div className="absolute right-12 lg:-bottom-12 mt-2 py-2 bg-white border rounded shadow-md"> {/* Styles for menu */}
-                            <button
-                                className="block px-4 py-2 text-gray-800 hover:bg-gray-100"
-                                // onClick={() => handleCollectionSelect('boys')}
-                            >
-                                Boys
-                            </button>
-                            <button
-                                className="block px-4 py-2 text-gray-800 hover:bg-gray-100"
-                                // onClick={() => handleCollectionSelect('girls')}
-                            >
-                                Girls
-                            </button>
-                        </div>
-                    )}
+                <div className='w-full bg-slate-300 flex flex-row mt-8 px-2 justify-between'><span className='text-2xl font-semibold'>Kids Collection</span><select><option>All</option>
+                <option value="Girls">Girls</option>
+                <option value="Boys">Boys</option></select>
+                   
                 </div>
                 
                 <CollectionCard data={kidCollection} />

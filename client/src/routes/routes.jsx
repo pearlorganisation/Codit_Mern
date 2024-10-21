@@ -24,6 +24,7 @@ import Cart from "../pages/Cart/Cart";
 import MensCollection from "../components/MensCollection/mensCollection";
 import WomensCollection from "../components/WomensCollection/WomensCollection";
 import KidsCollection from "../components/KidsCollection/KidsCollection";
+import AccessoriesCollection from "../components/Accessories/Accessories";
 
 const routes = createBrowserRouter([
   {
@@ -119,8 +120,11 @@ const routes = createBrowserRouter([
       {
         path:"kids",
         element: <KidsCollection />
+      },
+      {
+        path: "accessories",
+        element: <AccessoriesCollection />
       }
-      
     ],
   },
 ]);
