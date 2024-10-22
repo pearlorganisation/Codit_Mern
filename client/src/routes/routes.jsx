@@ -25,6 +25,7 @@ import MensCollection from "../components/MensCollection/mensCollection";
 import WomensCollection from "../components/WomensCollection/WomensCollection";
 import KidsCollection from "../components/KidsCollection/KidsCollection";
 import AccessoriesCollection from "../components/Accessories/Accessories";
+import Islamic from "../components/IslamicCollection/Islamic";
 
 const routes = createBrowserRouter([
   {
@@ -124,6 +125,10 @@ const routes = createBrowserRouter([
       {
         path: "accessories",
         element: <AccessoriesCollection />
+      },
+      {
+        path: "islamic_collection",
+        element: <Islamic />
       }
     ],
   },

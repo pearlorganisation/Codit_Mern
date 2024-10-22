@@ -1,81 +1,65 @@
 import React from 'react'
-import { Swiper, SwiperSlide } from "swiper/react";
+import { Swiper, SwiperSlide } from 'swiper/react';
 import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination } from 'swiper/modules';
 import CollectionCard from '../CollectionCard/CollectionCard';
+const islamicCollection = [
+    {
+        name: "Abaya",
+        imagePath: "abaya1.jpg", // Replace with actual image paths
+        price: 120, // Add prices
+    },
+    {
+        name: "Borkha",
+        imagePath: "borkha1.jpg",
+        price: 110,
+    },
+    {
+        name: "Khimmer",
+        imagePath: "khimmer1.jpg",
+        price: 95,
+    },
+    {
+        name: "Hijab",
+        imagePath: "hijab1.jpg",
+        price: 40,
+    },
+    {
+        name: "Ready to Wear Hijab",
+        imagePath: "ready_hijab1.jpg",
+        price: 55,
+    },
+    {
+        name: "Salat Wear",
+        imagePath: "salat_wear1.jpg",
+        price: 75,
+    },
+    {
+        name: "Men Scarf",
+        imagePath: "men_scarf1.jpg",
+        price: 35,
+    },
+    {
+        name: "Tupi",
+        imagePath: "tupi1.jpg",
+        price: 25,
+    },
+    {
+        name: "Islamic Men Turban/Pagri",
+        imagePath: "turban1.jpg",
+        price: 60,
+    },
+];
 const homeSwipper = [
     "homeFrame.png",
     "homeFrame.png",
     "homeFrame.png",
     "homeFrame.png",
 ];
-
-
-const accessories = [
-    {
-        name: "Jacket",
-        imagePath: "ear1.jpg",
-        price: 100,
-    },
-    {
-        name: "Sweater",
-        imagePath: "ear2.jpg",
-        price: 80,
-    },
-    {
-        name: "Shirt",
-        imagePath: "bangles1.jpg",
-        price: 90,
-    },
-    {
-        name: "T-Shirt",
-        imagePath: "bangles2.jpg",
-        price: 70,
-    },
-    {
-        name: "Hoodie",
-        imagePath: "bracelet.jpg",
-        price: 85,
-    },
-    {
-        name: "Hoodie",
-        imagePath: "head2.jpg",
-        price: 85,
-    }, {
-        name: "Hoodie",
-        imagePath: "head3.jpg",
-        price: 85,
-    }, {
-        name: "Hoodie",
-        imagePath: "headpiece1.jpg",
-        price: 85,
-    }, {
-        name: "Hoodie",
-        imagePath: "necklace1.jpg",
-        price: 85,
-    }, {
-        name: "Hoodie",
-        imagePath: "necklace2.jpg",
-        price: 85,
-    }, {
-        name: "Hoodie",
-        imagePath: "necklace3.jpg",
-        price: 85,
-    }, {
-        name: "Hoodie",
-        imagePath: "ring1.jpg",
-        price: 85,
-    },
-    {
-        name: "Hoodie",
-        imagePath: "ring2.jpg",
-        price: 85,
-    },
-];
-const AccessoriesCollection = () => {
+const Islamic = () => {
   return (
-      <div>
+    <div>
           <div
               className="h-96"
               style={{
@@ -85,21 +69,23 @@ const AccessoriesCollection = () => {
               }}
           >
           </div>
-          {/* Kids collection */}
-          {/* {section && ()} */}
           <div className='grid space-y-4'>
-              <div className='w-full bg-slate-300 flex flex-row mt-8 px-2 justify-between'><span className='text-2xl font-semibold'>Accessories</span><select><option>All</option>
-                  <option value="Earing">Earing</option>
-                  <option value="Ring">Ring</option>
-                  <option value="Headpiece">Headpiece</option>
-                  <option value="Necklace">Necklace</option>
-                  <option value="Bangles">Bangles</option>
-                  <option value="Bracelets">Bracelets</option>
-                  </select>
+              <div className='w-full bg-slate-300 flex flex-row mt-8 px-2 justify-between'><span className='text-2xl font-semibold'>Islamic Collection</span><select><option>Select Categories</option>
+                  <option value="Girls">Abaya</option>
+                  <option value="Boys">Borkha</option>
+                  <option value="Boys">Khimmer</option>
+                  <option value="Boys">Hijab</option>
+                  <option value="Boys">Ready to Wear Hijab</option>
+                  <option value="Boys">Salat Wear</option>
+                  <option value="Boys">Men scarf</option>
+                  <option value="Boys">Tupif</option>
+                  <option value="Boys">Islamic Men Turban/Pagri</option>
+                
+                </select>
 
               </div>
 
-              <CollectionCard data={accessories} />
+              <CollectionCard data={islamicCollection} />
               <div className="flex flex-col md:flex-col lg:flex-row lg:gap-6 gap-2 w-full h-full  p-6">
                   <div className="lg:w-1/2 sm:w-full bg-gray-400 flex flex-col justify-between">
                       <div className="flex flex-col p-3">
@@ -129,10 +115,10 @@ const AccessoriesCollection = () => {
                   </div>
               </div>
 
-              <CollectionCard data={accessories} />
+              <CollectionCard data={islamicCollection} />
           </div>
-      </div>
+    </div>
   )
 }
 
-export default AccessoriesCollection
+export default Islamic

@@ -77,10 +77,12 @@ export default function Header() {
     { title: "Men's", path: "/mens" },
     { title: "Women's", path: "/womens" },
     { title: "Kids", path: "/kids" },
+    { title: "Islamic", path: "/islamic_collection" },
     { title: "Accessories", path: "/accessories" },
     { title: "Gifts", path: "/gifts" },
     { title: "Contact Us", path: "/contact_us" },
     { title: "About Us", path: "/about_us" },
+ 
   ];
 
   return (

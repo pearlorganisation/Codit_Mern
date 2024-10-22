@@ -42,46 +42,17 @@ const kidCollection = [
 ];
 
 const KidsCollection = () => {
-    const [section, setSection] = useState(false);
-    const handleSelect =()=>{
-      setSection(!section);
-    }
+ 
     return (
         <div>
-            <div className="">
-                <Swiper
-                    slidesPerView={1}
-                    spaceBetween={10}
-                    pagination={{
-                        clickable: true,
-                    }}
-                    breakpoints={{
-                        640: {
-                            slidesPerView: 1,
-                            spaceBetween: 20,
-                        },
-                        768: {
-                            slidesPerView: 1,
-                            spaceBetween: 40,
-                        },
-                        1024: {
-                            slidesPerView: 1,
-                            spaceBetween: 50,
-                        },
-                    }}
-                    modules={[Pagination]}
-                    className="mySwiper"
-                >
-                    {homeSwipper.map((el, index) => {
-                        return (
-                            <SwiperSlide key={index}>
-                                <div>
-                                    <img src={el} alt="img" />
-                                </div>
-                            </SwiperSlide>
-                        );
-                    })}
-                </Swiper>
+            <div
+                className="h-96"
+                style={{
+                    backgroundImage: `url('/homeFrame.png')`,
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                }}
+            >
             </div>
             {/* Kids collection */}
             {/* {section && ()} */}

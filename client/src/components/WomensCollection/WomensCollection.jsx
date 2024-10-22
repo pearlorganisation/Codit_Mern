@@ -44,40 +44,14 @@ const mensCollection = [
 const WomensCollection = () => {
     return (
         <div>
-            <div className="">
-                <Swiper
-                    slidesPerView={1}
-                    spaceBetween={10}
-                    pagination={{
-                        clickable: true,
-                    }}
-                    breakpoints={{
-                        640: {
-                            slidesPerView: 1,
-                            spaceBetween: 20,
-                        },
-                        768: {
-                            slidesPerView: 1,
-                            spaceBetween: 40,
-                        },
-                        1024: {
-                            slidesPerView: 1,
-                            spaceBetween: 50,
-                        },
-                    }}
-                    modules={[Pagination]}
-                    className="mySwiper"
-                >
-                    {homeSwipper.map((el, index) => {
-                        return (
-                            <SwiperSlide key={index}>
-                                <div>
-                                    <img src={el} alt="img" />
-                                </div>
-                            </SwiperSlide>
-                        );
-                    })}
-                </Swiper>
+            <div
+                className="h-96"
+                style={{
+                    backgroundImage: `url('/homeFrame.png')`,
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                }}
+            >
             </div>
             {/* womens collection */}
 
@@ -87,7 +61,7 @@ const WomensCollection = () => {
                 
              
          
-                <div className="flex flex-col md:flex-col lg:flex-row lg:gap-6 gap-2 w-full h-full bg-pink-200">
+                <div className="flex flex-col md:flex-col lg:flex-row lg:gap-6 gap-2 w-full h-full  p-6">
                     <div className="lg:w-1/2 sm:w-full bg-gray-400 flex flex-col justify-between">
                         <div className="flex flex-col p-3">
                             <h1 className="text-4xl font-light">
